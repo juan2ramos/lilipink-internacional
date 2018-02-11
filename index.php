@@ -43,6 +43,6 @@
             <div class=" card is-full-width">dd</div>
         </div>
 
-asasdasd
+
     </div>
 <?php get_footer();

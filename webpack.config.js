@@ -14,8 +14,13 @@ const config = {
         publicPath: "/assets/",
         filename: 'js/main.js',
     },
-
     module: {
+        loaders: [
+            {
+                test: /flickity/,
+                loader: 'imports?define=>false&this=>window'
+            }
+        ],
         rules: [
             {
                 test: /\.scss$/,

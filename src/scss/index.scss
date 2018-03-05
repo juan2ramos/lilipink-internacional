@@ -8,7 +8,28 @@
   --darkGrey-color: #8FA4B8;
   --dark-color: #5A6169;
   --active-color: #007BFF;
+  --grid-maxWidth: 1400px;
 }
-.card{
-  padding: 2.4rem;
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "small" {
+    @media (min-width: 36rem) {
+      @content
+    }
+  } @else if $breakpoint == "medium" {
+    @media (min-width: 45rem) {
+      @content
+    }
+  } @else if $breakpoint == "large" {
+    @media (min-width: 100rem) {
+      @content
+    }
+  }
 }
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: .2rem;
+}
+@import "template/header";
+@import "template/index";
+@import "template/footer";

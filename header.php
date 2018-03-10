@@ -38,7 +38,7 @@
                 </svg>
             </div>
             <nav class="Header-nav row align-center">
-                <ul class="is-list-less row hide-phone">
+                <ul class="is-list-less row Header-navTop">
                     <li><a href="">Emprendedoras</a></li>
                     <li><a href="">Créditos</a></li>
                     <li><a href="">Franquicias</a></li>
@@ -71,11 +71,11 @@
                 <span></span>
             </div>
         </div>
-        <form action="" class="col-5  hide-phone">
+        <form action="" class="col-5 Header-searchDesktop" >
             <input type="text" placeholder="Buscar">
             <button type="submit"></button>
         </form>
-        <figure class="col-5 is-text-center hide-phone">
+        <figure class="col-5 is-text-center Header-logoTop">
             <svg width="221px" height="41px" viewBox="0 0 221 41" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -89,7 +89,7 @@
                 </g>
             </svg>
         </figure>
-        <ul class="nav-icon col-14   col-l-5 is-list-less row justify-end">
+        <ul class="nav-icon col-14   col-m-5 is-list-less row justify-end">
             <li>
                 <a href="">
                     <img src="<?php bloginfo( 'template_directory' ); ?>/public/images/cuenta-2.png" alt="">
@@ -131,7 +131,7 @@
                     </svg>
                 </a></li>
 
-            <li class="hide-large Header-search">
+            <li class="hide-medium Header-search">
                 <form action="">
                     <input type="text" placeholder="Buscar">
                     <button type="submit"></button>
@@ -146,9 +146,9 @@
             <li><a href="">Rebajas</a></li>
             <li><a href="">Tiendas</a></li>
 
-            <li class="hide-large"><a href="">Emprendedoras</a></li>
-            <li class="hide-large"><a href="">Créditos</a></li>
-            <li class="hide-large"><a href="">Franquicias</a></li>
+            <li class="hide-medium"><a href="">Emprendedoras</a></li>
+            <li class="hide-medium"><a href="">Créditos</a></li>
+            <li class="hide-medium"><a href="">Franquicias</a></li>
 
         </ul>
     </nav>

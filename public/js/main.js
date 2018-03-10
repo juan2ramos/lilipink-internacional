@@ -1947,7 +1947,7 @@ var _Flickity = __webpack_require__(8);
 
 var _Flickity2 = _interopRequireDefault(_Flickity);
 
-var _loadGoogleMapsApi = __webpack_require__(27);
+var _loadGoogleMapsApi = __webpack_require__(20);
 
 var _loadGoogleMapsApi2 = _interopRequireDefault(_loadGoogleMapsApi);
 
@@ -4159,14 +4159,7 @@ return Flickity;
 
 
 /***/ }),
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;;(function (root, factory) {  // eslint-disable-line

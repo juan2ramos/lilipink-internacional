@@ -5,8 +5,8 @@
         <img src="<?php bloginfo( 'template_url' ) ?>/public/images/BANNERS-SPORT.jpg" alt="">
     </div>
 
-    <section class="Map row  margin-bottom-20">
-        <article class="col-16 col-l-4 row align-center">
+    <section class="Map row  margin-bottom-20 align-item-center">
+        <article class="col-16 col-m-4 row ">
             <div class="is-full-width">
                 <h1>NUESTRAS TIENDAS</h1>
                 <p>Seleccione la ubicación y la <br>tienda para ver la información</p>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </article>
-        <article class="col-16 col-l-12">
+        <article class="col-16 col-m-12">
             <div class="Map-google"></div>
         </article>
     </section>

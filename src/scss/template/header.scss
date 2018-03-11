@@ -3,7 +3,7 @@ header {
   position: relative;
   z-index: 2;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  @include respond-to(large) {
+  @include respond-to(medium) {
     box-shadow: none;
   }
 }
@@ -122,7 +122,18 @@ header {
     padding: .5rem 0 0 .5rem;
   }
 }
-
+.Header-searchDesktop, .Header-logoTop{
+  display: none;
+  @include respond-to(medium) {
+    display: block;
+  }
+}
+.Header-navTop{
+  display: none;
+  @include respond-to(medium) {
+    display: flex;
+  }
+}
 .Header-search {
   padding: 3rem 0 2rem;
   form {
@@ -160,11 +171,10 @@ header {
     margin: 0 1rem;
   }
 }
-
 .Nav {
   overflow-y: auto;
   height: inherit;
-  @include respond-to(large) {
+  @include respond-to(medium) {
     overflow-y: inherit;
     height: auto;
   }
@@ -180,7 +190,7 @@ header {
   ul {
     flex-direction: column;
     padding: 1rem 2rem;
-    @include respond-to(large) {
+    @include respond-to(medium) {
       flex-direction: row;
     }
     li {
@@ -191,14 +201,14 @@ header {
       &:nth-child(2) {
         border-top: none;
       }
-      @include respond-to(large) {
+      @include respond-to(medium) {
         border-top: none;
         &:first-child {
           display: block;
         }
       }
-      &.hide-large {
-        @include respond-to(large) {
+      &.hide-medium {
+        @include respond-to(medium) {
           display: none;
         }
       }
@@ -213,7 +223,7 @@ header {
     letter-spacing: 2px;
     color: #757575;
     font-weight: 600;
-    @include respond-to(large) {
+    @include respond-to(medium) {
       border-top: none;
       font-size: 1.05rem;
       padding: .8rem 22px !important;
@@ -259,7 +269,7 @@ header {
   &.open {
     transform: translateX(100%);
   }
-  @include respond-to(large) {
+  @include respond-to(medium) {
     position: sticky;
     top: 0;
     height: auto;
@@ -298,7 +308,7 @@ header {
   transition: transform .5s ease-in-out;
   display: block;
   padding-left: 1rem;
-  @include respond-to(large) {
+  @include respond-to(medium) {
     display: none;
   }
   span {
@@ -401,7 +411,7 @@ header {
 body.open-nav {
   overflow-y: hidden;
 
-  @include respond-to(large) {
+  @include respond-to(medium) {
     overflow-y: visible;
   }
 }

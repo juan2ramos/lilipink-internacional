@@ -1,7 +1,7 @@
 <footer>
     <section class="Footer-content">
         <div class="row container justify-between ">
-            <article class="col-16 col-l-5 Footer-links">
+            <article class="col-16 col-m-5 Footer-links">
                 <h3>enlaces de interés</h3>
                 <ul class="is-list-less">
                     <li><a href="">Sobre Nosotros</a></li>
@@ -11,7 +11,7 @@
                     <li><strong>PBX: 6702400</strong></li>
                 </ul>
             </article>
-            <article class="col-16 col-l-5 Newsletter">
+            <article class="col-16 col-m-6 Newsletter">
                 <h3 class="is-text-center">Recibe las mejores <br> promociones en tu e-mail</h3>
                 <form action="">
                     <div class="Newsletter-content">
@@ -26,7 +26,7 @@
                     <li><a href=""><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </article>
-            <article class="col-16 col-l-5 Footer-shop">
+            <article class="col-16 col-m-5  Footer-shop">
                 <figure>
                     <h3 class="row justify-center ">
                         <img src="<?php bloginfo( 'template_url' ) ?>/public/images/storesIcon.png" alt="">

@@ -1,38 +1,66 @@
-<?php
-/**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package mintecceramic
- */
+<?php get_header(); ?>
+<main class="container row">
+    <div class="filters  ">
+        <ul class="is-list-less ">
+            <li>
+                <h3 class="filters-title">Tipo de producto</h3>
+                <ul class="is-list-less category-product">
+                    <li>
+                        <input type="checkbox" id="check1"> <label for="check1">checkbox 1</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check12"> <label for="check12">checkbox 1</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check13"> <label for="check13">checkbox 1</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="filters-title">Tipo de producto</h3>
+                <ul class="is-list-less category-product">
+                    <li>
+                        <input type="checkbox" id="check1"> <label for="check1">checkbox 1</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check12"> <label for="check12">checkbox 1</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check13"> <label for="check13">checkbox 1</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="filters-title">Tipo de producto</h3>
+                <ul class="is-list-less category-product">
+                    <li>
+                        <input type="checkbox" id="check1"> <label for="check1">checkbox 1</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check12"> <label for="check12">checkbox 1</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check13"> <label for="check13">checkbox 1</label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <section class="products row justify-center">
+        <?php for ($i = 0; $i < 12; $i++): ?>
+            <article  class="col-16 col-m-5 col-l-4 Slide-products">
+                <figure>
+                    <img src="https://lilipink.vteximg.com.br/arquivos/ids/169212-300-450/7179-2-1.jpg?v=636536965916770000"
+                         alt="915-M-2-1" id="">
+                </figure>
+                <div class="row justify-between">
+                    <h2><a href="">Camiseta Manga sisa</a></h2>
+                    <a class="icon" href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
+                </div>
+                <span>Ref. LE01-012</span>
+            </article>
+        <?php endfor; ?>
+    </section>
 
-get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-			<?php
-			while ( have_posts() ) : the_post();
-
-				get_template_part( 'template-parts/content', 'page' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
-			endwhile; // End of the loop.
-			?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
+</main>
+<?php get_footer();

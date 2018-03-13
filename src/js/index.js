@@ -1,5 +1,5 @@
 import '../scss/index.scss';
-import Flickity from 'Flickity';
+// import Flickity from 'Flickity';
 import loadGoogleMapsApi from 'load-google-maps-api-2';
 
 loadGoogleMapsApi.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
@@ -17,7 +17,7 @@ loadGoogleMapsApi().then(function (googleMaps) {
     console.error(err);
 });
 
-const header  = document.querySelector('header'),
+const header = document.querySelector('header'),
     menu = document.querySelector('.Nav-content'),
     headerCountry = document.querySelector('.Header-country'),
     countries = document.querySelector('.countries');
@@ -38,6 +38,7 @@ observer.observe(header);
 
 const menuToggle = document.getElementById('menu-toggle'),
     NavAdmin = document.querySelector('.Nav-content'),
+    FilterTitle = document.querySelectorAll('.filters-title'),
     Body = document.querySelector('body');
 
 menuToggle.addEventListener('click', () => {
@@ -49,4 +50,11 @@ menuToggle.addEventListener('click', () => {
         'top': 0
     });
 });
+FilterTitle.forEach(function (el) {
+    console.log(el);
+    el.addEventListener('click', function () {
+        el.parentElement.querySelector('ul').classList.toggle('show');
+    })
+});
+
 

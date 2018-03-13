@@ -25,7 +25,8 @@
         <div class="container row justify-between">
             <div class="Header-logo">
                 <span></span>
-                <svg width="62px" height="11px" viewBox="0 0 62 11" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                <a href="/">
+                    <svg width="62px" height="11px" viewBox="0 0 62 11" version="1.1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="lilipink_logo" fill="#FF0087" fill-rule="nonzero">
@@ -36,6 +37,7 @@
                         </g>
                     </g>
                 </svg>
+                </a>
             </div>
             <nav class="Header-nav row align-center">
                 <ul class="is-list-less row Header-navTop">
@@ -76,7 +78,7 @@
             <button type="submit"></button>
         </form>
         <figure class="col-5 is-text-center Header-logoTop">
-            <svg width="221px" height="41px" viewBox="0 0 221 41" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            <a href="/"><svg width="221px" height="41px" viewBox="0 0 221 41" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
 
                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -87,7 +89,7 @@
                               id="Combined-Shape"></path>
                     </g>
                 </g>
-            </svg>
+            </svg></a>
         </figure>
         <ul class="nav-icon col-14   col-m-5 is-list-less row justify-end">
             <li>

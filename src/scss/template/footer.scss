@@ -103,13 +103,8 @@
 .Footer-pay {
   article:last-child{
     margin: auto;
-<<<<<<< HEAD
     @include respond-to(large) {
       margin: 0 ;
-=======
-    @include respond-to(medium) {
-      margin: 0;
->>>>>>> 6896fa299d504bb30d438d534258e27ec7833049
     }
 
   }
@@ -141,7 +136,7 @@
 }
 
 .Newsletter {
-  @include respond-to(medium) {
+  @include respond-to(large) {
     border-left: .1rem solid white;
     border-right: .1rem solid white;
   }
@@ -152,7 +147,7 @@
   border-top: .1rem solid white;
   padding: 6rem 0 6.5rem;
   margin: 2rem 0 0;
-  @include respond-to(medium) {
+  @include respond-to(large) {
     border-bottom: none;
     border-top: none;
     padding: 0;
@@ -163,7 +158,7 @@
 .Footer-links {
   order: 1;
   padding: 1.6rem 0 .4rem;
-  @include respond-to(medium) {
+  @include respond-to(large) {
     order: 0;
     padding: 0;
   }

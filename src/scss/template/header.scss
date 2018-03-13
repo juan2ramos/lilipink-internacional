@@ -3,7 +3,7 @@ header {
   position: relative;
   z-index: 2;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  @include respond-to(medium) {
+  @include respond-to(large) {
     box-shadow: none;
   }
 }
@@ -124,13 +124,13 @@ header {
 }
 .Header-searchDesktop, .Header-logoTop{
   display: none;
-  @include respond-to(medium) {
+  @include respond-to(large) {
     display: block;
   }
 }
 .Header-navTop{
   display: none;
-  @include respond-to(medium) {
+  @include respond-to(large) {
     display: flex;
   }
 }
@@ -174,7 +174,7 @@ header {
 .Nav {
   overflow-y: auto;
   height: inherit;
-  @include respond-to(medium) {
+  @include respond-to(large) {
     overflow-y: inherit;
     height: auto;
   }
@@ -190,7 +190,7 @@ header {
   ul {
     flex-direction: column;
     padding: 1rem 2rem;
-    @include respond-to(medium) {
+    @include respond-to(large) {
       flex-direction: row;
     }
     li {
@@ -201,14 +201,14 @@ header {
       &:nth-child(2) {
         border-top: none;
       }
-      @include respond-to(medium) {
+      @include respond-to(large) {
         border-top: none;
         &:first-child {
           display: block;
         }
       }
       &.hide-medium {
-        @include respond-to(medium) {
+        @include respond-to(large) {
           display: none;
         }
       }
@@ -223,7 +223,7 @@ header {
     letter-spacing: 2px;
     color: #757575;
     font-weight: 600;
-    @include respond-to(medium) {
+    @include respond-to(large) {
       border-top: none;
       font-size: 1.05rem;
       padding: .8rem 22px !important;
@@ -269,7 +269,7 @@ header {
   &.open {
     transform: translateX(100%);
   }
-  @include respond-to(medium) {
+  @include respond-to(large) {
     position: sticky;
     top: 0;
     height: auto;
@@ -308,7 +308,7 @@ header {
   transition: transform .5s ease-in-out;
   display: block;
   padding-left: 1rem;
-  @include respond-to(medium) {
+  @include respond-to(large) {
     display: none;
   }
   span {

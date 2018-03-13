@@ -1,8 +1,8 @@
 <?php get_header(); ?>
     <div class="main-carousel" data-flickity='{ "autoPlay": 5000 }'>
-        <img src="<?php bloginfo( 'template_url' ) ?>/public/images/banners-belleza.jpg" alt="">
-        <img src="<?php bloginfo( 'template_url' ) ?>/public/images/BANNERS-ACCESORIOS.jpg" alt="">
-        <img src="<?php bloginfo( 'template_url' ) ?>/public/images/BANNERS-SPORT.jpg" alt="">
+        <img src="<?php bloginfo('template_url') ?>/public/images/banners-belleza.jpg" alt="">
+        <img src="<?php bloginfo('template_url') ?>/public/images/BANNERS-ACCESORIOS.jpg" alt="">
+        <img src="<?php bloginfo('template_url') ?>/public/images/BANNERS-SPORT.jpg" alt="">
     </div>
 
     <section class="Map row  margin-bottom-20 align-item-center">
@@ -35,46 +35,46 @@
     <section class="container Slide-products">
         <h3>Enamórate de estos productos</h3>
         <div class="Slide-productsContent" data-flickity='{ "groupCells": true, "autoPlay": 5000  }'>
-					<?php for ( $i = 0; $i < 12; $i ++ ): ?>
-              <article>
-                  <figure>
-                      <img src="https://lilipink.vteximg.com.br/arquivos/ids/167243-500-745/915-M-2-1.jpg?v=636493791635530000"
-                           alt="915-M-2-1" id="">
-                  </figure>
-                  <div class="row justify-between">
-                      <h2><a href="">Camiseta Manga sisa</a></h2>
-                      <a class="icon" href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
-                  </div>
-                  <span>Ref. LE01-012</span>
-              </article>
-					<?php endfor; ?>
+            <?php for ($i = 0; $i < 12; $i++): ?>
+                <article>
+                    <figure>
+                        <img src="https://lilipink.vteximg.com.br/arquivos/ids/167243-500-745/915-M-2-1.jpg?v=636493791635530000"
+                             alt="915-M-2-1" id="">
+                    </figure>
+                    <div class="row justify-between">
+                        <h2><a href="">Camiseta Manga sisa</a></h2>
+                        <a class="icon" href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
+                    </div>
+                    <span>Ref. LE01-012</span>
+                </article>
+            <?php endfor; ?>
         </div>
         <div class="Slide-productsContent" data-flickity='{ "groupCells": true, "autoPlay": 5000  }'>
-					<?php for ( $i = 0; $i < 12; $i ++ ): ?>
-              <article>
-                  <figure>
-                      <img src="https://lilipink.vteximg.com.br/arquivos/ids/163024-500-745/vb2-080_tribal-1.jpg?v=636453355865470000"
-                           alt="915-M-2-1" id="">
-                  </figure>
-                  <div class="row justify-between">
-                      <h2><a href="">Camiseta Manga sisa</a></h2>
-                      <a class="icon" href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
-                  </div>
-                  <span>Ref. LE01-012</span>
-              </article>
-					<?php endfor; ?>
+            <?php for ($i = 0; $i < 12; $i++): ?>
+                <article>
+                    <figure>
+                        <img src="https://lilipink.vteximg.com.br/arquivos/ids/163024-500-745/vb2-080_tribal-1.jpg?v=636453355865470000"
+                             alt="915-M-2-1" id="">
+                    </figure>
+                    <div class="row justify-between">
+                        <h2><a href="">Camiseta Manga sisa</a></h2>
+                        <a class="icon" href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
+                    </div>
+                    <span>Ref. LE01-012</span>
+                </article>
+            <?php endfor; ?>
         </div>
     </section>
 
     <section class="Social-feeds container">
-        <h3 >
+        <h3>
             <span><i class="fab fa-instagram"></i></span>
             <span>Inspirate #decorazón</span>
         </h3>
         <div data-flickity='{ "groupCells": true, "autoPlay": 5000  }'>
-			<?php for ( $i = 0; $i < 12; $i ++ ): ?>
-                <article> <img src="<?php bloginfo( 'template_url' ) ?>/public/images/1.png" alt=""></article>
-			<?php endfor; ?>
+            <?php for ($i = 0; $i < 12; $i++): ?>
+                <article><img src="<?php bloginfo('template_url') ?>/public/images/1.png" alt=""></article>
+            <?php endfor; ?>
         </div>
     </section>
 

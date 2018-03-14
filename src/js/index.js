@@ -1,7 +1,9 @@
 import '../scss/index.scss';
-// import Flickity from 'Flickity';
+import Flickity from 'Flickity';
 import loadGoogleMapsApi from 'load-google-maps-api-2';
+import Magnify from './Zoom'
 
+// new Magnifier('.imageZoom');
 loadGoogleMapsApi.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 loadGoogleMapsApi.language = 'es';
 
@@ -39,7 +41,10 @@ observer.observe(header);
 const menuToggle = document.getElementById('menu-toggle'),
     NavAdmin = document.querySelector('.Nav-content'),
     FilterTitle = document.querySelectorAll('.filters-title'),
-    Body = document.querySelector('body');
+    ModalDot = document.querySelectorAll('.modal-images li'),
+    Body = document.querySelector('body'),
+    Modal = document.querySelector('.modal'),
+    ModalSlide = new Flickity('.modal-image');
 
 menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('open');
@@ -51,10 +56,30 @@ menuToggle.addEventListener('click', () => {
     });
 });
 FilterTitle.forEach(function (el) {
-    console.log(el);
     el.addEventListener('click', function () {
         el.parentElement.querySelector('ul').classList.toggle('show');
     })
 });
+
+ModalDot.forEach(function (el, index) {
+    el.addEventListener('click', function () {
+        ModalSlide.select(index)
+    });
+});
+
+document.querySelectorAll('.show-modal').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+        e.preventDefault();
+        Modal.classList.add('show');
+    });
+});
+
+document.querySelector('.modal-close').addEventListener('click',function () {
+        Modal.classList.remove('show');
+});
+document.querySelectorAll('.modal-image img').forEach(function (el) {
+    Magnify(el, 3);
+});
+
 
 

@@ -145,9 +145,14 @@ body {
   margin-right: 10px;
   li{
     width: 100%;
+
   }
   img{
-    min-width: 38rem;
+
+    height: 100%;
+    @include respond-to(medium){
+      min-width: 38rem;
+    }
   }
   .flickity-page-dots,.flickity-prev-next-button{
     display: none;

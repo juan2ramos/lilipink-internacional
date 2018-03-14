@@ -54,7 +54,7 @@
                              alt="915-M-2-1" id="">
                     </figure>
                     <div class="row justify-between">
-                        <h2><a href="#">Camiseta Manga sisa</a></h2>
+                        <h2><a href="#" class="show-modal">Camiseta Manga sisa</a></h2>
                         <a  class="icon show-modal" href="#"><i aria-hidden="true" class="fa fa-search-plus"></i></a>
                     </div>
                     <span>Ref. LE01-012</span>

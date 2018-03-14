@@ -34,7 +34,7 @@
 
     <section class="container Slide-products">
         <h3>Enamórate de estos productos</h3>
-        <div class="Slide-productsContent" data-flickity='{ "groupCells": true, "autoPlay": 5000  }'>
+        <div class="Slide-productsContent" data-flickity='{ "groupCells": true, "autoPlay": 5000 }'>
             <?php for ($i = 0; $i < 12; $i++): ?>
                 <article>
                     <figure>

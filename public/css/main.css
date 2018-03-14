@@ -2958,7 +2958,10 @@ body.open-nav {
   .modal-image li {
     width: 100%; }
   .modal-image img {
-    min-width: 38rem; }
+    height: 100%; }
+    @media (min-width: 45rem) {
+      .modal-image img {
+        min-width: 38rem; } }
   .modal-image .flickity-page-dots, .modal-image .flickity-prev-next-button {
     display: none; }
 

@@ -3,7 +3,21 @@ import Flickity from 'Flickity';
 import loadGoogleMapsApi from 'load-google-maps-api-2';
 import Magnify from './Zoom'
 import FB from 'facebook-sdk'
+import INS from 'instagram-api'
 
+
+const instagramAPI = new INS('632928845.259bed1.b3f03cd8d429437f8e540443d6dd5828');
+
+instagramAPI.userSelfMedia().then(function(result) {
+
+    const post = response.data;
+    for (let i in post) {
+        // console.log(post[i].attachments.data[0].media.image.src);
+    }
+
+}, function(err){
+    console.log(err); // error info
+});
 
 
 const facebook = new FB.Facebook({
@@ -11,12 +25,12 @@ const facebook = new FB.Facebook({
     secret : '6d2901c3c2487a8b9a829134798f87b0'
 });
 
-facebook.api( "/1609925185992599/feed",'GET',
+facebook.api( "/135253469831282/feed",'GET',
     {"fields":"attachments"},
     response => {
         const post = response.data;
         for (let i in post) {
-            console.log(post[i].attachments.data[0].media.image.src);
+           // console.log(post[i].attachments.data[0].media.image.src);
         }
     });
 

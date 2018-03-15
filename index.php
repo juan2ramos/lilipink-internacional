@@ -34,7 +34,7 @@
 
     <section class="container Slide-products">
         <h3>Enamórate de estos productos</h3>
-        <div class="Slide-productsContent" data-flickity='{ "groupCells": true, "autoPlay": 5000 }'>
+        <div class="Slide-productsContent" data-flickity='{ "groupCells": true, "autoPlay": 5000  }'>
             <?php for ($i = 0; $i < 12; $i++): ?>
                 <article>
                     <figure>
@@ -71,10 +71,8 @@
             <span><i class="fab fa-instagram"></i></span>
             <span>Inspirate #decorazón</span>
         </h3>
-        <div data-flickity='{ "groupCells": true, "autoPlay": 5000  }'>
-            <?php for ($i = 0; $i < 12; $i++): ?>
-                <article><img src="<?php bloginfo('template_url') ?>/public/images/1.png" alt=""></article>
-            <?php endfor; ?>
+        <div id="FeedId">
+
         </div>
     </section>
 

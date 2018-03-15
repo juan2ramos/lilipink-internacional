@@ -5,34 +5,75 @@ import Magnify from './Zoom'
 import FB from 'facebook-sdk'
 import INS from 'instagram-api'
 
-
 const instagramAPI = new INS('632928845.259bed1.b3f03cd8d429437f8e540443d6dd5828');
 
-instagramAPI.userSelfMedia().then(function(result) {
+const SocialData = [];
+
+const facebook = new FB.Facebook({
+    appId: '1489685601143763',
+    secret: '6d2901c3c2487a8b9a829134798f87b0'
+});
+const Feed = new Flickity('#Feed', {
+    imagesLoaded: true,
+    cellAlign: 'center',
+    lazyLoad: true,
+    contain: true,
+    wrapAround: true,
+    autoPlay: 5000
+});
+instagramAPI.userSelfMedia().then(function (response) {
 
     const post = response.data;
     for (let i in post) {
-        // console.log(post[i].attachments.data[0].media.image.src);
+        SocialData.push({
+            "id": post[i].id,
+            "likes": post[i].likes.count,
+            "comments": post[i].comments.count,
+            "caption": (post[i].caption) ? post[i].caption.text : "",
+            "type": post[i].type,
+            "link": post[i].link,
+            "images": post[i].images.low_resolution.url,
+            "from": "instagram",
+        });
     }
+    facebook.api(
+        '/135253469831282/',
+        'GET',
+        {"fields": "feed{attachments{url,type,media},comments.limit(0).summary(true),type,likes.limit(0).summary(true)}"},
+        function (response) {
+            const post = response.feed.data;
+            for (let i in post) {
+                const attachments = (Array.isArray(post[i].attachments.data)) ?
+                    post[i].attachments.data[0] :
+                    post[i].attachments.data;
+                SocialData.push({
+                    "id": post[i].id,
+                    "likes": post[i].likes.summary.total_count,
+                    "comments": post[i].comments.summary.total_count,
+                    "caption": "asd",
+                    "type": post[i].type,
+                    "link": attachments.url,
+                    "images": (attachments.media) ? attachments.media.image.src : "",
+                    "from": "facebook",
+                });
+            }
+            for (let i in SocialData) {
+                const articleFeed = document.createElement("article"),
+                    img = document.createElement('img'),
+                    feedId = document.querySelector('#FeedId');
+                img.src = SocialData[i].images;
+                articleFeed.appendChild(img);
+                feedId.prepend(articleFeed)
+            }
 
-}, function(err){
+
+            //console.log(SocialData);
+        }
+    );
+
+}, function (err) {
     console.log(err); // error info
 });
-
-
-const facebook = new FB.Facebook({
-    appId  : '1489685601143763',
-    secret : '6d2901c3c2487a8b9a829134798f87b0'
-});
-
-facebook.api( "/135253469831282/feed",'GET',
-    {"fields":"attachments"},
-    response => {
-        const post = response.data;
-        for (let i in post) {
-           // console.log(post[i].attachments.data[0].media.image.src);
-        }
-    });
 
 
 // new Magnifier('.imageZoom');
@@ -76,7 +117,7 @@ const menuToggle = document.getElementById('menu-toggle'),
     ModalDot = document.querySelectorAll('.modal-images li'),
     Body = document.querySelector('body'),
     Modal = document.querySelector('.modal'),
-    ModalSlide = new Flickity('.modal-image',{
+    ModalSlide = new Flickity('.modal-image', {
         imagesLoaded: true,
         cellAlign: 'center',
         lazyLoad: true,
@@ -116,8 +157,8 @@ document.querySelectorAll('.show-modal').forEach(function (el) {
     });
 });
 
-document.querySelector('.modal-close').addEventListener('click',function () {
-        Modal.classList.remove('show');
+document.querySelector('.modal-close').addEventListener('click', function () {
+    Modal.classList.remove('show');
 });
 
 

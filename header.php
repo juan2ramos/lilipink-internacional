@@ -139,14 +139,14 @@
                     <button type="submit"></button>
                 </form>
             </li>
-            <li><a href="/producto">Interior</a></li>
-            <li><a href="/producto">Descanso</a></li>
-            <li><a href="/producto">Sport</a></li>
-            <li><a href="/producto">Swim</a></li>
-            <li><a href="/producto">Belleza</a></li>
-            <li><a href="/producto">Accesorios</a></li>
-            <li><a href="/producto">Rebajas</a></li>
-            <li><a href="/producto">Tiendas</a></li>
+            <li><a href="producto">Interior</a></li>
+            <li><a href="producto">Descanso</a></li>
+            <li><a href="producto">Sport</a></li>
+            <li><a href="producto">Swim</a></li>
+            <li><a href="producto">Belleza</a></li>
+            <li><a href="producto">Accesorios</a></li>
+            <li><a href="producto">Rebajas</a></li>
+            <li><a href="producto">Tiendas</a></li>
 
             <li class="hide-medium"><a href="">Emprendedoras</a></li>
             <li class="hide-medium"><a href="">Créditos</a></li>

@@ -7,13 +7,14 @@ import INS from 'instagram-api'
 
 const instagramAPI = new INS('632928845.259bed1.b3f03cd8d429437f8e540443d6dd5828');
 
+const feedId = document.querySelector('#FeedId');
 const SocialData = [];
 
 const facebook = new FB.Facebook({
     appId: '1489685601143763',
     secret: '6d2901c3c2487a8b9a829134798f87b0'
 });
-const Feed = new Flickity('#Feed', {
+const Feed = new Flickity('#FeedId', {
     imagesLoaded: true,
     cellAlign: 'center',
     lazyLoad: true,
@@ -21,6 +22,7 @@ const Feed = new Flickity('#Feed', {
     wrapAround: true,
     autoPlay: 5000
 });
+
 instagramAPI.userSelfMedia().then(function (response) {
 
     const post = response.data;
@@ -59,13 +61,12 @@ instagramAPI.userSelfMedia().then(function (response) {
             }
             for (let i in SocialData) {
                 const articleFeed = document.createElement("article"),
-                    img = document.createElement('img'),
-                    feedId = document.querySelector('#FeedId');
+                    img = document.createElement('img');
                 img.src = SocialData[i].images;
                 articleFeed.appendChild(img);
-                feedId.prepend(articleFeed)
+                Feed.prepend(articleFeed)
             }
-
+            Feed.resize();
 
             //console.log(SocialData);
         }

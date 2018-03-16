@@ -15896,13 +15896,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var instagramAPI = new _instagramApi2.default('632928845.259bed1.b3f03cd8d429437f8e540443d6dd5828');
 
+var feedId = document.querySelector('#FeedId');
 var SocialData = [];
 
 var facebook = new _facebookSdk2.default.Facebook({
     appId: '1489685601143763',
     secret: '6d2901c3c2487a8b9a829134798f87b0'
 });
-var Feed = new _Flickity2.default('#Feed', {
+var Feed = new _Flickity2.default('#FeedId', {
     imagesLoaded: true,
     cellAlign: 'center',
     lazyLoad: true,
@@ -15910,6 +15911,7 @@ var Feed = new _Flickity2.default('#Feed', {
     wrapAround: true,
     autoPlay: 5000
 });
+
 instagramAPI.userSelfMedia().then(function (response) {
 
     var post = response.data;
@@ -15942,12 +15944,12 @@ instagramAPI.userSelfMedia().then(function (response) {
         }
         for (var _i2 in SocialData) {
             var articleFeed = document.createElement("article"),
-                img = document.createElement('img'),
-                feedId = document.querySelector('#FeedId');
+                img = document.createElement('img');
             img.src = SocialData[_i2].images;
             articleFeed.appendChild(img);
-            feedId.prepend(articleFeed);
+            Feed.prepend(articleFeed);
         }
+        Feed.resize();
 
         //console.log(SocialData);
     });

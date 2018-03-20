@@ -45,6 +45,8 @@ instagramAPI.userSelfMedia().then(function (response) {
         function (response) {
             const post = response.feed.data;
             for (let i in post) {
+                if (post[i].attachments)
+                    continue;
                 const attachments = (Array.isArray(post[i].attachments.data)) ?
                     post[i].attachments.data[0] :
                     post[i].attachments.data;

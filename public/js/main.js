@@ -15915,7 +15915,10 @@ var Feed = new _Flickity2.default('#FeedId', {
 instagramAPI.userSelfMedia().then(function (response) {
 
     var post = response.data;
+    console.log(post);
     for (var i in post) {
+        var thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
+        thumbnail = thumbnail.replace('vp', 'hphotos-xfp1');
         SocialData.push({
             "id": post[i].id,
             "likes": post[i].likes.count,
@@ -15923,7 +15926,7 @@ instagramAPI.userSelfMedia().then(function (response) {
             "caption": post[i].caption ? post[i].caption.text : "",
             "type": post[i].type,
             "link": post[i].link,
-            "images": post[i].images.low_resolution.url,
+            "images": thumbnail,
             "from": "instagram"
         });
     }
@@ -15954,10 +15957,10 @@ instagramAPI.userSelfMedia().then(function (response) {
             articleFeed.appendChild(img);
             Feed.prepend(articleFeed);
         }
-        Feed.resize();
 
         //console.log(SocialData);
     });
+    Feed.resize();
 }, function (err) {
     console.log(err); // error info
 });

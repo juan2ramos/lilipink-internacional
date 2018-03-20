@@ -15930,6 +15930,8 @@ instagramAPI.userSelfMedia().then(function (response) {
     facebook.api('/135253469831282/', 'GET', { "fields": "feed{attachments{url,type,media},comments.limit(0).summary(true),type,likes.limit(0).summary(true)}" }, function (response) {
         var post = response.feed.data;
         for (var _i in post) {
+            if (post[_i].attachments) continue;
+
             var attachments = Array.isArray(post[_i].attachments.data) ? post[_i].attachments.data[0] : post[_i].attachments.data;
             SocialData.push({
                 "id": post[_i].id,

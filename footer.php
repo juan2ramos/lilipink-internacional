@@ -26,14 +26,14 @@
                     <li><a href=""><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </article>
-            <article class="col-16 col-m-5  Footer-shop">
+            <article class="col-16 col-m-5  Footer-shop row justify-center align-center">
                 <figure>
                     <h3 class="row justify-center ">
                         <img src="<?php bloginfo( 'template_url' ) ?>/public/images/storesIcon.png" alt="">
                         <span>encuentra tu tienda <br>más cercana</span>
                     </h3>
                 </figure>
-                <select name="" id="">
+                <select name="" id="" style="display: none">
                     <option value="">Seleccione una ciudad</option>
                     <option value=""></option>
                 </select>

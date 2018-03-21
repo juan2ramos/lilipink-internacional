@@ -46,16 +46,15 @@
                     <li><a href="">Franquicias</a></li>
                 </ul>
                 <div class="Header-country">
-                    <div class="row align-center">
-                        <figure>
-                        </figure>
+                    <div class="row align-center country">
+                        <figure class="COL"></figure>
                         <p>Colombia</p>
                         <span>▼</span>
                     </div>
                     <ul class="is-list-less countries">
-                        <li><a href="">COSTA RICA</a></li>
-                        <li><a href="">GUATEMALA</a></li>
-                        <li><a href="">PANAMÁ</a></li>
+                        <li class="row align-item-center""> <figure class="CR"></figure><a  href="">COSTA RICA</a></li>
+                        <li class="row align-item-center"> <figure class="GUA"></figure><a href="">GUATEMALA</a></li>
+                        <li class="row align-item-center"> <figure class="PAN"></figure><a href="">PANAMÁ</a></li>
                     </ul>
                 </div>
             </nav>
@@ -92,19 +91,11 @@
             </svg></a>
         </figure>
         <ul class="nav-icon col-14   col-m-5 is-list-less row justify-end">
-            <li>
-                <a href="">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/public/images/cuenta-2.png" alt="">
-                </a>
-            </li>
+
             <li>
                 <a href="" style="font-size: 20px; color: #e6007e"><i class="fas fa-map-marker-alt"></i></a>
             </li>
-            <li>
-                <a href="">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/public/images/wishLilipink.png" alt="">
-                </a>
-            </li>
+
             <li>
                 <a href="">
                     <img src="<?php bloginfo( 'template_directory' ); ?>/public/images/bag.png" alt="">
@@ -145,12 +136,9 @@
             <li><a href="producto">Swim</a></li>
             <li><a href="producto">Belleza</a></li>
             <li><a href="producto">Accesorios</a></li>
-            <li><a href="producto">Rebajas</a></li>
-            <li><a href="producto">Tiendas</a></li>
+            <li><a href="producto" class="fucsia ">Tiendas</a></li>
 
-            <li class="hide-medium"><a href="">Emprendedoras</a></li>
-            <li class="hide-medium"><a href="">Créditos</a></li>
-            <li class="hide-medium"><a href="">Franquicias</a></li>
+
 
         </ul>
     </nav>

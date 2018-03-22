@@ -89,21 +89,45 @@ instagramAPI.userSelfMedia().then(function (response) {
 // new Magnifier('.imageZoom');
 loadGoogleMapsApi.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 loadGoogleMapsApi.language = 'es';
-let Map;
+
 loadGoogleMapsApi().then(function (googleMaps) {
     let infoWindow = new google.maps.InfoWindow({map: map});
-    Map = new googleMaps.Map(document.querySelector('.Map-google'), {
+    const map = new googleMaps.Map(document.querySelector('.Map-google'), {
         center: {
-            lat: 40.7484405,
-            lng: -73.9944191
+            lat: 9.928069,
+            lng: -84.090725
         },
         zoom: 12
     })
+// Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            let pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
 
 
 }).catch(function (err) {
     console.error(err);
 });
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+}
 
 const header = document.querySelector('header'),
     menu = document.querySelector('.Nav-content'),

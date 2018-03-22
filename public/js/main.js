@@ -15968,9 +15968,10 @@ instagramAPI.userSelfMedia().then(function (response) {
 // new Magnifier('.imageZoom');
 _loadGoogleMapsApi2.default.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 _loadGoogleMapsApi2.default.language = 'es';
-
+var Map = void 0;
 (0, _loadGoogleMapsApi2.default)().then(function (googleMaps) {
-    new googleMaps.Map(document.querySelector('.Map-google'), {
+    var infoWindow = new google.maps.InfoWindow({ map: map });
+    Map = new googleMaps.Map(document.querySelector('.Map-google'), {
         center: {
             lat: 40.7484405,
             lng: -73.9944191

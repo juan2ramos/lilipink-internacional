@@ -48,7 +48,7 @@ instagramAPI.userSelfMedia().then(function (response) {
         function (response) {
             const post = response.feed.data;
             for (let i in post) {
-                if (post[i].attachments == null){
+                if (post[i].attachments == null) {
                     continue;
                     console.log(post[i].attachments)
                 }
@@ -89,15 +89,18 @@ instagramAPI.userSelfMedia().then(function (response) {
 // new Magnifier('.imageZoom');
 loadGoogleMapsApi.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 loadGoogleMapsApi.language = 'es';
-
+let Map;
 loadGoogleMapsApi().then(function (googleMaps) {
-    new googleMaps.Map(document.querySelector('.Map-google'), {
+    let infoWindow = new google.maps.InfoWindow({map: map});
+    Map = new googleMaps.Map(document.querySelector('.Map-google'), {
         center: {
             lat: 40.7484405,
             lng: -73.9944191
         },
         zoom: 12
     })
+
+
 }).catch(function (err) {
     console.error(err);
 });
@@ -170,6 +173,8 @@ document.querySelectorAll('.show-modal').forEach(function (el) {
 document.querySelector('.modal-close').addEventListener('click', function () {
     Modal.classList.remove('show');
 });
+
+
 
 
 

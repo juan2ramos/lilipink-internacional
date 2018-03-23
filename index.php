@@ -43,7 +43,7 @@
                     </figure>
                     <div class="row justify-between">
                         <h2><a href="">Camiseta Manga sisa</a></h2>
-                        <a class="icon" href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
+                        <a class="show-modal icon " href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
                     </div>
                     <span>Ref. LE01-012</span>
                 </article>
@@ -58,7 +58,7 @@
                     </figure>
                     <div class="row justify-between">
                         <h2><a href="">Camiseta Manga sisa</a></h2>
-                        <a  class="show-modal" href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
+                        <a  class="show-modal icon" href=""><i aria-hidden="true" class="fa fa-search-plus"></i></a>
                     </div>
                     <span>Ref. LE01-012</span>
                 </article>

@@ -6,7 +6,7 @@ import FB from 'facebook-sdk'
 import INS from 'instagram-api'
 
 const instagramAPI = new INS('632928845.259bed1.b3f03cd8d429437f8e540443d6dd5828');
-
+const urlSite = document.querySelector('body').dataset.url;
 const feedId = document.querySelector('#FeedId');
 const SocialData = [];
 
@@ -26,10 +26,11 @@ const Feed = new Flickity('#FeedId', {
 instagramAPI.userSelfMedia().then(function (response) {
 
     const post = response.data;
-    console.log(post);
     for (let i in post) {
         let thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
         thumbnail = thumbnail.replace('vp', 'hphotos-xfp1');
+        console.log(post[i].images.thumbnail.url)
+        console.log(thumbnail)
         SocialData.push({
             "id": post[i].id,
             "likes": post[i].likes.count,
@@ -92,13 +93,19 @@ loadGoogleMapsApi.language = 'es';
 
 loadGoogleMapsApi().then(function (googleMaps) {
     let infoWindow = new google.maps.InfoWindow({map: map});
+    const myLatLng = {lat: 9.928069, lng: -84.090725};
+
     const map = new googleMaps.Map(document.querySelector('.Map-google'), {
-        center: {
-            lat: 9.928069,
-            lng: -84.090725
-        },
+        center: myLatLng,
         zoom: 12
-    })
+    });
+    const marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: '',
+        icon: urlSite+"/wp-content/themes/lilipink/public/images/pin_map.png"
+    });
+
 // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -106,7 +113,12 @@ loadGoogleMapsApi().then(function (googleMaps) {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-
+           new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: '',
+                icon: urlSite+"/wp-content/themes/lilipink/public/images/pin_map.png"
+            });
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);

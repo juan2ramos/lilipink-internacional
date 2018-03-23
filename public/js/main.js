@@ -15917,9 +15917,7 @@ instagramAPI.userSelfMedia().then(function (response) {
     var post = response.data;
     for (var i in post) {
         var thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
-        thumbnail = thumbnail.replace('vp', 'hphotos-xfp1');
-        console.log(post[i].images.thumbnail.url);
-        console.log(thumbnail);
+        thumbnail = thumbnail.replace('vp', 'xp');
         SocialData.push({
             "id": post[i].id,
             "likes": post[i].likes.count,

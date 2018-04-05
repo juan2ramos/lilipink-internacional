@@ -2,9 +2,12 @@
   background: #e6007e;
   color: white;
   text-transform: uppercase;
-  padding: 3rem 0 2rem;
+  padding: 3rem 2rem 2rem;
   width: 100%;
-
+  .container-less{
+    max-width: 100rem;
+    margin: auto;
+  }
   a {
     color: white;
     font-size: 1.1rem;
@@ -22,7 +25,7 @@
   }
   form {
     position: relative;
-    width: 35rem;
+    width: 40rem;
     max-width: 100%;
     margin: auto;
     p {
@@ -138,7 +141,6 @@
 .Newsletter {
   @include respond-to(large) {
     border-left: .1rem solid white;
-    border-right: .1rem solid white;
   }
 }
 

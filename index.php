@@ -5,7 +5,7 @@
     <img src="<?php bloginfo( 'template_url' ) ?>/public/images/BANNERS-SPORT.jpg" alt="">
   </div>
 
-  <section class="Map row  margin-bottom-20 align-item-center">
+  <section class="Map row  margin-bottom-20 align-item-center" id="Map">
     <article class="col-16 col-m-4 row ">
       <div class="is-full-width">
         <h1>NUESTRAS TIENDAS</h1>

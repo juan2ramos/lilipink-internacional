@@ -1,0 +1,172 @@
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #ddd;
+  opacity: 0;
+  cursor: none;
+  width: 200px;
+  height: 200px;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.65);
+  &.show{
+    display: flex;
+  }
+}
+.modal-main{
+  position: relative;
+  background: white;
+  color: #444;
+  padding: 2.4rem;
+  max-width: 92rem;
+  width: 100%;
+  margin: 0 2rem;
+  overflow: scroll;
+  max-height: 90%;
+  @include respond-to(medium){
+    max-width: 77rem;
+  }
+  @include respond-to(large){
+    max-width: 92rem;
+  }
+}
+.modal-close{
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem ;
+  width: 1.8rem;
+  height: 1.8rem;
+  cursor: pointer;
+  background: url("../images/closeModal.png") no-repeat center center;
+}
+.modal-slide{
+  max-width: 100%;
+  margin: auto;
+  @include respond-to(medium){
+    max-width: 40rem;
+  }
+  @include respond-to(large){
+    max-width: 47rem;
+  }
+}
+
+.modal-info{
+  padding-left: 2rem;
+  box-sizing: border-box;
+  color: #757575;
+  max-width: 100%;
+  @include respond-to(medium){
+    max-width: 29rem;
+  }
+  @include respond-to(large){
+    max-width: 36rem;
+  }
+  h2{
+    font-size: 2.7rem;
+    letter-spacing: 0.2rem;
+    line-height: 3.4rem;
+    margin-bottom: 2.4rem;
+    width: 80%;
+    font-weight: 500;
+    color: #757575;
+  }
+  h3{
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 0;
+    margin-top: 2.4rem;
+  }
+  p{
+    font-weight: 100;
+    &.ref{
+      font-size: 1.2rem;
+    }
+  }
+}
+.modal-images{
+  max-width: 10rem;
+  margin-right: 2rem;
+  ul{
+    display: flex;
+    flex-direction: row;
+    @include respond-to(medium){
+      flex-direction: column;
+    }
+  }
+  li{
+    margin-bottom: .5rem;
+    cursor: pointer;
+  }
+}
+.modal-image{
+  width: 27rem;
+  margin-right: 10px;
+  @include respond-to(medium){
+    min-width: 27rem;
+  }
+  @include respond-to(large){
+    min-width: 34rem;
+  }
+  li{
+    width: 100%;
+
+  }
+  img{
+
+    height: 100%;
+    @include respond-to(medium){
+      min-width: 27rem;
+    }
+    @include respond-to(large){
+      min-width: 34rem;
+    }
+  }
+  .flickity-page-dots,.flickity-prev-next-button{
+    display: none;
+  }
+}
+.modal-infoWishlist{
+  background-color: #fbd9ec;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+  max-width: 279rem;
+  padding: 0;
+  margin: 2rem auto;
+  display: block;
+  div {
+    background-color: #f2bbda;
+    border-right: solid 1px #fff;
+    text-align: center;
+    width: 60px;
+    display: inline-block;
+    padding: 15px 0;
+    vertical-align: middle;
+
+  }
+  span{
+    color: #ea57b6;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    width: calc(100% - 67px);
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    left: -10px;
+    letter-spacing: 0;
+  }
+}

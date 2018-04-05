@@ -15900,68 +15900,72 @@ var feedId = document.querySelector('#FeedId');
 var SocialData = [];
 
 var facebook = new _facebookSdk2.default.Facebook({
-    appId: '1489685601143763',
-    secret: '6d2901c3c2487a8b9a829134798f87b0'
-});
-var Feed = new _Flickity2.default('#FeedId', {
-    imagesLoaded: true,
-    cellAlign: 'center',
-    lazyLoad: true,
-    contain: true,
-    wrapAround: true,
-    autoPlay: 5000
+  appId: '1489685601143763',
+  secret: '6d2901c3c2487a8b9a829134798f87b0'
 });
 
 instagramAPI.userSelfMedia().then(function (response) {
 
-    var post = response.data;
-    for (var i in post) {
-        var thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
-        thumbnail = thumbnail.replace('vp', 'xp');
-        SocialData.push({
-            "id": post[i].id,
-            "likes": post[i].likes.count,
-            "comments": post[i].comments.count,
-            "caption": post[i].caption ? post[i].caption.text : "",
-            "type": post[i].type,
-            "link": post[i].link,
-            "images": thumbnail,
-            "from": "instagram"
-        });
-    }
-    facebook.api('/135253469831282/', 'GET', { "fields": "feed{attachments{url,type,media},comments.limit(0).summary(true),type,likes.limit(0).summary(true)}" }, function (response) {
-        var post = response.feed.data;
-        for (var _i in post) {
-            if (post[_i].attachments == null) {
-                continue;
-                console.log(post[_i].attachments);
-            }
-
-            var attachments = Array.isArray(post[_i].attachments.data) ? post[_i].attachments.data[0] : post[_i].attachments.data;
-            SocialData.push({
-                "id": post[_i].id,
-                "likes": post[_i].likes.summary.total_count,
-                "comments": post[_i].comments.summary.total_count,
-                "caption": "asd",
-                "type": post[_i].type,
-                "link": attachments.url,
-                "images": attachments.media ? attachments.media.image.src : "",
-                "from": "facebook"
-            });
-        }
-        for (var _i2 in SocialData) {
-            var articleFeed = document.createElement("article"),
-                img = document.createElement('img');
-            img.src = SocialData[_i2].images;
-            articleFeed.appendChild(img);
-            Feed.prepend(articleFeed);
-        }
-
-        //console.log(SocialData);
+  var post = response.data;
+  for (var i in post) {
+    //let thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
+    var thumbnail = post[i].images.standard_resolution.url;
+    console.log(post[i].images);
+    //thumbnail = thumbnail.replace('vp', 'xp');
+    SocialData.push({
+      "id": post[i].id,
+      "likes": post[i].likes.count,
+      "comments": post[i].comments.count,
+      "caption": post[i].caption ? post[i].caption.text : "",
+      "type": post[i].type,
+      "link": post[i].link,
+      "images": thumbnail,
+      "from": "instagram"
     });
-    Feed.resize();
+  }
+  facebook.api('/135253469831282/', 'GET', { "fields": "feed{attachments{url,type,media},comments.limit(0).summary(true),type,likes.limit(0).summary(true)}" }, function (response) {
+    var post = response.feed.data;
+    for (var _i in post) {
+      if (post[_i].attachments == null) {
+        continue;
+      }
+      var attachments = Array.isArray(post[_i].attachments.data) ? post[_i].attachments.data[0] : post[_i].attachments.data;
+      SocialData.push({
+        "id": post[_i].id,
+        "likes": post[_i].likes.summary.total_count,
+        "comments": post[_i].comments.summary.total_count,
+        "caption": "asd",
+        "type": post[_i].type,
+        "link": attachments.url,
+        "images": attachments.media ? attachments.media.image.src : "",
+        "from": "facebook"
+      });
+    }
+
+    var FeedEl = new _Flickity2.default('#FeedId', {
+      imagesLoaded: false,
+      setGallerySize: true,
+      cellAlign: 'center',
+      lazyLoad: true,
+      contain: true,
+      wrapAround: true,
+      autoPlay: 5000
+    });
+    for (var _i2 in SocialData) {
+      var articleFeed = document.createElement("article"),
+          img = document.createElement('img');
+      img.src = SocialData[_i2].images;
+      articleFeed.appendChild(img);
+      FeedEl.prepend(articleFeed);
+    }
+    setTimeout(function () {
+      FeedEl.resize();
+    }, 3000);
+
+    //console.log(SocialData);
+  });
 }, function (err) {
-    console.log(err); // error info
+  console.log(err); // error info
 });
 
 // new Magnifier('.imageZoom');
@@ -15969,49 +15973,50 @@ _loadGoogleMapsApi2.default.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 _loadGoogleMapsApi2.default.language = 'es';
 
 (0, _loadGoogleMapsApi2.default)().then(function (googleMaps) {
-    var infoWindow = new google.maps.InfoWindow({ map: map });
-    var myLatLng = { lat: 9.928069, lng: -84.090725 };
+  var infoWindow = new google.maps.InfoWindow({ map: map });
+  var myLatLng = { lat: 9.928069, lng: -84.090725 };
 
-    var map = new googleMaps.Map(document.querySelector('.Map-google'), {
-        center: myLatLng,
-        zoom: 12
-    });
-    var marker = new google.maps.Marker({
-        position: myLatLng,
+  var map = new googleMaps.Map(document.querySelector('.Map-google'), {
+    center: myLatLng,
+    zoom: 12
+  });
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: '',
+    icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
+  });
+
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      new google.maps.Marker({
+        position: pos,
         map: map,
         title: '',
         icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
+      });
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function () {
+      handleLocationError(true, infoWindow, map.getCenter());
     });
-
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            new google.maps.Marker({
-                position: pos,
-                map: map,
-                title: '',
-                icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
-            });
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-        }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
 }).catch(function (err) {
-    console.error(err);
+  console.error(err);
 });
+
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
 }
 
 var header = document.querySelector('header'),
@@ -16020,15 +16025,15 @@ var header = document.querySelector('header'),
     countries = document.querySelector('.countries');
 
 headerCountry.addEventListener('click', function () {
-    countries.classList.toggle('open');
+  countries.classList.toggle('open');
 });
 
 var observer = new IntersectionObserver(function (entries, observer) {
-    if (entries[0].isIntersecting) {
-        menu.classList.remove('sticky');
-    } else {
-        menu.classList.add('sticky');
-    }
+  if (entries[0].isIntersecting) {
+    menu.classList.remove('sticky');
+  } else {
+    menu.classList.add('sticky');
+  }
 });
 
 observer.observe(header);
@@ -16040,47 +16045,47 @@ var menuToggle = document.getElementById('menu-toggle'),
     Body = document.querySelector('body'),
     Modal = document.querySelector('.modal'),
     ModalSlide = new _Flickity2.default('.modal-image', {
-    imagesLoaded: true,
-    cellAlign: 'center',
-    lazyLoad: true,
-    contain: true,
-    wrapAround: true
+  imagesLoaded: true,
+  cellAlign: 'center',
+  lazyLoad: true,
+  contain: true,
+  wrapAround: true
 });
 
 menuToggle.addEventListener('click', function () {
-    menuToggle.classList.toggle('open');
-    NavAdmin.classList.toggle('open');
-    Body.classList.toggle('open-nav');
-    window.scrollTo({
-        'behavior': 'smooth',
-        'top': 0
-    });
+  menuToggle.classList.toggle('open');
+  NavAdmin.classList.toggle('open');
+  Body.classList.toggle('open-nav');
+  window.scrollTo({
+    'behavior': 'smooth',
+    'top': 0
+  });
 });
 FilterTitle.forEach(function (el) {
-    el.addEventListener('click', function () {
-        el.parentElement.querySelector('ul').classList.toggle('show');
-    });
+  el.addEventListener('click', function () {
+    el.parentElement.querySelector('ul').classList.toggle('show');
+  });
 });
 
 ModalDot.forEach(function (el, index) {
-    el.addEventListener('click', function () {
-        ModalSlide.select(index);
-    });
+  el.addEventListener('click', function () {
+    ModalSlide.select(index);
+  });
 });
 
 document.querySelectorAll('.show-modal').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-        e.preventDefault();
-        Modal.classList.add('show');
-        ModalSlide.resize();
-        document.querySelectorAll('.modal-image img').forEach(function (el) {
-            (0, _Zoom2.default)(el, 3);
-        });
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+    Modal.classList.add('show');
+    ModalSlide.resize();
+    document.querySelectorAll('.modal-image img').forEach(function (el) {
+      (0, _Zoom2.default)(el, 3);
     });
+  });
 });
 
 document.querySelector('.modal-close').addEventListener('click', function () {
-    Modal.classList.remove('show');
+  Modal.classList.remove('show');
 });
 
 /***/ }),

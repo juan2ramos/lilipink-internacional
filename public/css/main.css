@@ -2496,8 +2496,8 @@ a.fucsia {
       display: block; } }
 
 .Map {
-  background: #FFEEF8;
-  color: #e6007e;
+  background: #e6007e;
+  color: #FFF;
   padding: 3rem 0 0; }
   @media (min-width: 920px) {
     .Map {
@@ -2567,7 +2567,6 @@ a.fucsia {
   .Slide-products .icon {
     font-size: 2rem;
     background-color: #f7f7f7;
-    border: none;
     border-top: 1px solid #dddbdb;
     border-radius: 20px;
     cursor: pointer;
@@ -2576,8 +2575,7 @@ a.fucsia {
     top: 15px;
     width: 40px;
     position: relative;
-    padding: .5rem 1rem;
-    display: none; }
+    padding: .5rem 1rem; }
     @media (min-width: 45rem) {
       .Slide-products .icon {
         display: block; } }
@@ -2587,9 +2585,12 @@ a.fucsia {
   .Slide-products a {
     color: #757575; }
   .Slide-products article {
-    width: 50%;
+    width: 100%;
     padding: 0 3rem; }
     @media (min-width: 45rem) {
+      .Slide-products article {
+        width: 50%; } }
+    @media (min-width: 920px) {
       .Slide-products article {
         width: 25%; } }
   .Slide-products button {
@@ -2899,9 +2900,12 @@ a.fucsia {
   margin: 0 2rem;
   overflow: scroll;
   max-height: 90%; }
+  @media (min-width: 45rem) {
+    .modal-main {
+      max-width: 77rem; } }
   @media (min-width: 920px) {
     .modal-main {
-      margin: 0; } }
+      max-width: 92rem; } }
 
 .modal-close {
   position: absolute;
@@ -2915,9 +2919,12 @@ a.fucsia {
 .modal-slide {
   max-width: 100%;
   margin: auto; }
+  @media (min-width: 45rem) {
+    .modal-slide {
+      max-width: 40rem; } }
   @media (min-width: 920px) {
     .modal-slide {
-      max-width: 51rem; } }
+      max-width: 47rem; } }
 
 .modal-info {
   padding-left: 2rem;
@@ -2925,6 +2932,9 @@ a.fucsia {
           box-sizing: border-box;
   color: #757575;
   max-width: 100%; }
+  @media (min-width: 45rem) {
+    .modal-info {
+      max-width: 29rem; } }
   @media (min-width: 920px) {
     .modal-info {
       max-width: 36rem; } }
@@ -2968,16 +2978,58 @@ a.fucsia {
     cursor: pointer; }
 
 .modal-image {
-  width: 38rem;
+  width: 27rem;
   margin-right: 10px; }
+  @media (min-width: 45rem) {
+    .modal-image {
+      min-width: 27rem; } }
+  @media (min-width: 920px) {
+    .modal-image {
+      min-width: 34rem; } }
   .modal-image li {
     width: 100%; }
   .modal-image img {
     height: 100%; }
     @media (min-width: 45rem) {
       .modal-image img {
-        min-width: 38rem; } }
+        min-width: 27rem; } }
+    @media (min-width: 920px) {
+      .modal-image img {
+        min-width: 34rem; } }
   .modal-image .flickity-page-dots, .modal-image .flickity-prev-next-button {
     display: none; }
+
+.modal-infoWishlist {
+  background-color: #fbd9ec;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+  max-width: 279rem;
+  padding: 0;
+  margin: 2rem auto;
+  display: block; }
+  .modal-infoWishlist div {
+    background-color: #f2bbda;
+    border-right: solid 1px #fff;
+    text-align: center;
+    width: 60px;
+    display: inline-block;
+    padding: 15px 0;
+    vertical-align: middle; }
+  .modal-infoWishlist span {
+    color: #ea57b6;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    width: calc(100% - 67px);
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    left: -10px;
+    letter-spacing: 0; }
 
 /*# sourceMappingURL=main.css.map*/

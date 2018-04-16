@@ -72,9 +72,17 @@
       <span><i class="fab fa-instagram"></i></span>
       <span>Inspirate #decorazón</span>
     </h3>
-    <div id="FeedId" class="FeedId" >
+    <div class="">
+      <div id="FeedId" class="FeedId"></div>
 
+      <div class="fb-page" data-href="https://www.facebook.com/LiliPinkColombia/" data-tabs="timeline"
+           data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+           data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/LiliPinkColombia/" class="fb-xfbml-parse-ignore"><a
+            href="https://www.facebook.com/LiliPinkColombia/">Lili Pink</a></blockquote>
+      </div>
     </div>
+
   </section>
   <div class="modal justify-center align-item-center">
     <div class="modal-main">
@@ -125,5 +133,14 @@
       </section>
     </div>
   </div>
+  <div id="fb-root"></div>
+  <script>(function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12&appId=1489685601143763&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <?php get_footer();
 

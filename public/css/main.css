@@ -2615,6 +2615,9 @@ a.fucsia {
     padding: 0 1rem; }
     @media (min-width: 45rem) {
       .Social-feeds article {
+        width: 50%; } }
+    @media (min-width: 920px) {
+      .Social-feeds article {
         width: 25%; } }
   .Social-feeds button {
     min-width: auto;
@@ -2642,7 +2645,7 @@ a.fucsia {
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
     width: 6rem;
     height: 6rem;
-    left: 0;
+    left: .5rem;
     -webkit-transform: translate3d(-50%, -50%, 0);
             transform: translate3d(-50%, -50%, 0); }
     .Social-feeds .flickity-prev-next-button.previous svg {
@@ -2654,7 +2657,36 @@ a.fucsia {
     height: 6rem;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
-    right: -.3rem !important; }
+    right: .5rem !important; }
+
+#FeedId {
+  width: 100%;
+  vertical-align: top;
+  margin: 2rem auto; }
+  @media (min-width: 45rem) {
+    #FeedId {
+      width: calc(100% - 22rem);
+      display: inline-block;
+      margin: 0 auto;
+      overflow: hidden; } }
+  @media (min-width: 45rem) {
+    #FeedId {
+      width: calc(100% - 37rem); } }
+
+.fb-page {
+  padding: 2rem;
+  width: 100%;
+  display: block;
+  vertical-align: top; }
+  @media (min-width: 45rem) {
+    .fb-page {
+      width: 20rem;
+      display: inline-block;
+      padding: 0 0 0 2rem;
+      margin: 0 auto; } }
+  @media (min-width: 45rem) {
+    .fb-page {
+      width: 35rem; } }
 
 .Footer-content {
   background: #e6007e;

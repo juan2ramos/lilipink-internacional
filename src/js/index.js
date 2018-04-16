@@ -2,20 +2,21 @@ import '../scss/index.scss';
 import Flickity from 'Flickity';
 import loadGoogleMapsApi from 'load-google-maps-api-2';
 import Magnify from './Zoom'
-import FB from 'facebook-sdk'
 import INS from 'instagram-api'
 
-const instagramAPI = new INS('632928845.259bed1.b3f03cd8d429437f8e540443d6dd5828');
+const instagramAPI = new INS('3646027596.c003d1f.a7cde2d348b5464db3bf27fecee21379');
 const urlSite = document.querySelector('body').dataset.url;
-const feedId = document.querySelector('#FeedId');
 const SocialData = [];
 
-const facebook = new FB.Facebook({
-  appId: '1489685601143763',
-  secret: '6d2901c3c2487a8b9a829134798f87b0'
+const FeedEl = new Flickity('#FeedId', {
+  imagesLoaded: false,
+  setGallerySize: true,
+  cellAlign: 'center',
+  lazyLoad: true,
+  contain: true,
+  wrapAround: true,
+  autoPlay: 5000
 });
-
-
 instagramAPI.userSelfMedia().then(function (response) {
 
   const post = response.data;
@@ -35,55 +36,18 @@ instagramAPI.userSelfMedia().then(function (response) {
       "from": "instagram",
     });
   }
-  facebook.api(
-    '/135253469831282/',
-    'GET',
-    {"fields": "feed{attachments{url,type,media},comments.limit(0).summary(true),type,likes.limit(0).summary(true)}"},
-    function (response) {
-      const post = response.feed.data;
-      for (let i in post) {
-        if (post[i].attachments == null) {
-          continue;
-        }
-        const attachments = (Array.isArray(post[i].attachments.data)) ?
-          post[i].attachments.data[0] :
-          post[i].attachments.data;
-        SocialData.push({
-          "id": post[i].id,
-          "likes": post[i].likes.summary.total_count,
-          "comments": post[i].comments.summary.total_count,
-          "caption": "asd",
-          "type": post[i].type,
-          "link": attachments.url,
-          "images": (attachments.media) ? attachments.media.image.src : "",
-          "from": "facebook",
-        });
-      }
+  for (let i in SocialData) {
+    const articleFeed = document.createElement("article"),
+      img = document.createElement('img');
+    img.src = SocialData[i].images;
+    articleFeed.appendChild(img);
+    FeedEl.prepend(articleFeed)
 
-
-      const FeedEl = new Flickity('#FeedId', {
-        imagesLoaded: false,
-        setGallerySize: true,
-        cellAlign: 'center',
-        lazyLoad: true,
-        contain: true,
-        wrapAround: true,
-        autoPlay: 5000
-      });
-      for (let i in SocialData) {
-        const articleFeed = document.createElement("article"),
-          img = document.createElement('img');
-        img.src = SocialData[i].images;
-        articleFeed.appendChild(img);
-        FeedEl.prepend(articleFeed)
-
-      }
-      setTimeout(function(){  FeedEl.resize(); }, 3000);
-
-      //console.log(SocialData);
-    }
-  )
-
+  }
+  setTimeout(function () {
+    FeedEl.resize();
+  }, 3000);
+  
 }, function (err) {
   console.log(err); // error info
 });

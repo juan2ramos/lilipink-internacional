@@ -162,6 +162,9 @@
     width: 50%;
     padding: 0 1rem;
     @include respond-to(medium) {
+      width: 50%;
+    }
+    @include respond-to(large) {
       width: 25%;
     }
   }
@@ -199,7 +202,7 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
     width: 6rem;
     height: 6rem;
-    left: 0;
+    left: .5rem;
     transform: translate3d(-50%, -50%, 0);
     svg {
       left: 50% !important;
@@ -211,6 +214,36 @@
     width: 6rem;
     height: 6rem;
     transform: translate(50%, -50%);
-    right: -.3rem !important;
+    right: .5rem !important;
+  }
+}
+#FeedId{
+  width: 100%;
+  vertical-align: top;
+  margin: 2rem auto;
+  @include respond-to(medium){
+    width: calc(100% - 22rem);
+    display: inline-block;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  @include respond-to(medium){
+    width: calc(100% - 37rem);
+  }
+}
+.fb-page{
+  padding: 2rem;
+  width: 100%;
+
+  display: block;
+  vertical-align: top;
+  @include respond-to(medium){
+    width: 20rem;
+    display: inline-block;
+    padding: 0 0 0 2rem;
+    margin: 0 auto;
+  }
+  @include respond-to(medium){
+    width: 35rem;
   }
 }

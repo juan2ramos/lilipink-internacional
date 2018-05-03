@@ -2075,6 +2075,12 @@ body {
   font-weight: 600;
   letter-spacing: .2rem; }
 
+h2 {
+  font-weight: 100; }
+
+p {
+  font-weight: 100; }
+
 header {
   position: relative;
   z-index: 2;
@@ -2687,6 +2693,15 @@ a.fucsia {
   @media (min-width: 45rem) {
     .fb-page {
       width: 35rem; } }
+
+.about-content {
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+  min-height: 700px;
+  min-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: visible; }
 
 .Footer-content {
   background: #e6007e;

@@ -247,3 +247,13 @@
     width: 35rem;
   }
 }
+
+.about-content{
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+  min-height: 700px;
+  min-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: visible;
+}

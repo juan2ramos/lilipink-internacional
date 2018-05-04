@@ -7856,15 +7856,7 @@ var instagramAPI = new _instagramApi2.default('3646027596.c003d1f.a7cde2d348b546
 var urlSite = document.querySelector('body').dataset.url;
 var SocialData = [];
 
-var FeedEl = new _Flickity2.default('#FeedId', {
-  imagesLoaded: false,
-  setGallerySize: true,
-  cellAlign: 'center',
-  lazyLoad: true,
-  contain: true,
-  wrapAround: true,
-  autoPlay: 5000
-});
+var FeedEl = document.getElementById('FeedId');
 instagramAPI.userSelfMedia().then(function (response) {
 
   var post = response.data;
@@ -7886,14 +7878,16 @@ instagramAPI.userSelfMedia().then(function (response) {
   }
   for (var _i in SocialData) {
     var articleFeed = document.createElement("article"),
-        img = document.createElement('img');
-    img.src = SocialData[_i].images;
-    articleFeed.appendChild(img);
+        feedImage = document.createElement('div');
+    feedImage.setAttribute('class', 'feedImage');
+    feedImage.style.backgroundImage = 'url(' + SocialData[_i].images + ')';
+    articleFeed.appendChild(feedImage);
+    //img = document.createElement('img');
+    //img.src = SocialData[i].images;
+    //articleFeed.appendChild(img);
+
     FeedEl.prepend(articleFeed);
   }
-  setTimeout(function () {
-    FeedEl.resize();
-  }, 3000);
 }, function (err) {
   console.log(err); // error info
 });

@@ -8,15 +8,7 @@ const instagramAPI = new INS('3646027596.c003d1f.a7cde2d348b5464db3bf27fecee2137
 const urlSite = document.querySelector('body').dataset.url;
 const SocialData = [];
 
-const FeedEl = new Flickity('#FeedId', {
-  imagesLoaded: false,
-  setGallerySize: true,
-  cellAlign: 'center',
-  lazyLoad: true,
-  contain: true,
-  wrapAround: true,
-  autoPlay: 5000
-});
+const FeedEl = document.getElementById('FeedId');
 instagramAPI.userSelfMedia().then(function (response) {
 
   const post = response.data;
@@ -38,16 +30,17 @@ instagramAPI.userSelfMedia().then(function (response) {
   }
   for (let i in SocialData) {
     const articleFeed = document.createElement("article"),
-      img = document.createElement('img');
-    img.src = SocialData[i].images;
-    articleFeed.appendChild(img);
+      feedImage = document.createElement('div');
+      feedImage.setAttribute('class', 'feedImage');
+      feedImage.style.backgroundImage = `url(${SocialData[i].images})`;
+      articleFeed.appendChild(feedImage);
+      //img = document.createElement('img');
+    //img.src = SocialData[i].images;
+    //articleFeed.appendChild(img);
+
     FeedEl.prepend(articleFeed)
 
   }
-  setTimeout(function () {
-    FeedEl.resize();
-  }, 3000);
-  
 }, function (err) {
   console.log(err); // error info
 });

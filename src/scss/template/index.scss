@@ -22,22 +22,41 @@
   }
 }
 
-.Map {
+.Map-formContainer {
   background: #e6007e;
-  color: #FFF;
-  padding: 3rem 0 0;
+  max-height: 46rem;
+  margin-bottom: 2rem;
+  padding: 3rem 1rem 3rem;
+  border-radius: 1.2rem;
+  @include respond-to(medium) {
+    padding: 8rem 3rem 10rem;
+    margin-bottom: 0;
+  }
+}
+
+.Map-articleContainer {
   @include respond-to(large) {
-    padding: 3rem 0 ;
+    padding-left: 3rem;
   }
-  article:first-child {
-    padding: 0 2.5rem 2rem ;
-    @include respond-to(large) {
-      padding: 0 0 0 3rem;
-    }
+}
+
+.Map {
+  text-transform: uppercase;
+  color: #FFF;
+  @include respond-to(large) {
+    padding: 3rem 0;
   }
-  article:last-child {
-    @include respond-to(large) {
-      padding-left: 3rem;
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 2rem;
+    text-transform: uppercase;
+    margin: 0 auto 4rem auto;
+    color: #757575;
+    @include respond-to(medium) {
+      line-height: 1.5rem;
     }
   }
   h1 {
@@ -61,7 +80,7 @@
 
 .Map-google {
   width: 100%;
-  height: 60rem;
+  height: 46rem;
 }
 
 #Map-location {
@@ -85,7 +104,7 @@
     font-size: 2rem;
     font-weight: 500;
     letter-spacing: 2px;
-    line-height: 2  rem;
+    line-height: 2rem;
     text-transform: uppercase;
     margin: 0 auto 4rem auto;
     color: #757575;
@@ -151,6 +170,7 @@
   }
 }
 
+
 .Slide-productsContent {
   margin-bottom: 6rem;
 }
@@ -158,16 +178,6 @@
 .Social-feeds {
   overflow: hidden;
   margin-bottom: 4rem;
-  article {
-    width: 50%;
-    padding: 0 1rem;
-    @include respond-to(medium) {
-      width: 50%;
-    }
-    @include respond-to(large) {
-      width: 25%;
-    }
-  }
 
   button {
     min-width: auto;
@@ -217,38 +227,8 @@
     right: .5rem !important;
   }
 }
-#FeedId{
-  width: 100%;
-  vertical-align: top;
-  margin: 2rem auto;
-  @include respond-to(medium){
-    width: calc(100% - 22rem);
-    display: inline-block;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  @include respond-to(medium){
-    width: calc(100% - 37rem);
-  }
-}
-.fb-page{
-  padding: 2rem;
-  width: 100%;
 
-  display: block;
-  vertical-align: top;
-  @include respond-to(medium){
-    width: 20rem;
-    display: inline-block;
-    padding: 0 0 0 2rem;
-    margin: 0 auto;
-  }
-  @include respond-to(medium){
-    width: 35rem;
-  }
-}
-
-.about-content{
+.about-content {
   background-position: center center;
   background-repeat: none;
   background-size: cover;
@@ -256,4 +236,120 @@
   min-height: 80vh;
   overflow-x: hidden;
   overflow-y: visible;
+}
+
+
+.Social-feedsContent {
+  max-width: 320px;
+  margin: auto;
+}
+
+#FeedId {
+  max-width: 300px;
+  max-height: 560px;
+  overflow: scroll;
+  margin: auto;
+}
+
+.feedImage {
+  width: 300px;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 2rem;
+  height: 300px;
+}
+
+
+.fb-page {
+  max-width: 300px;
+  width: 300px;
+  max-height: 400px;
+  margin: 4rem auto 0;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  #FeedId article:nth-child(n) .feedImage {
+    margin-right: 1rem;
+  }
+
+  #FeedId article:nth-child(2n) .feedImage {
+    margin-left: 1rem;
+  }
+
+  .Social-feedsContent {
+    max-width: 60rem;
+  }
+
+  #FeedId {
+    max-width: 400px;
+    max-height: 360px;
+    overflow: scroll;
+  }
+  .feedImage {
+    height: 170px;
+    width: 170px;
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 2rem;
+
+  }
+
+  .fb-page {
+    max-width: 200px;
+    width: 200px;
+    max-height: 360px;
+    border-left: 2px solid #cbcbcb;
+    padding-left: 2rem;
+    margin: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .Social-feedsContent {
+    max-width: 90rem;
+  }
+
+  #FeedId {
+    max-width: 600px;
+    max-height: 560px;
+    overflow: scroll;
+  }
+  .feedImage {
+    height: 270px;
+    width: 270px;
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 2rem;
+
+  }
+
+  .fb-page {
+    max-width: 290px;
+    width: 270px;
+    max-height: 560px;
+  }
+}
+@media (min-width: 1140px) {
+  .Social-feedsContent {
+    max-width: 114rem;
+  }
+  #FeedId {
+    max-width: 780px;
+    max-height: 760px;
+    overflow: scroll;
+  }
+  .feedImage {
+    height: 370px;
+    width: 370px;
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 2rem;
+
+  }
+  .fb-page {
+    max-width: 390px;
+    width: 350px;
+    max-height: 760px;
+  }
 }

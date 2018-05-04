@@ -1,7 +1,7 @@
 <footer>
     <section class="Footer-content">
         <div class="row container-less justify-between ">
-            <article class="col-16 col-m-6 Footer-links">
+            <article class="col-16 col-m-8 Footer-links is-text-center">
                 <h3>enlaces de interés</h3>
                 <ul class="is-list-less">
                     <li><a href="">Sobre Nosotros</a></li>
@@ -11,7 +11,7 @@
                     <li><strong>PBX: 6702400</strong></li>
                 </ul>
             </article>
-            <article class="col-16 col-m-10 Newsletter">
+            <article class="col-16 col-m-8 Newsletter">
                 <h3 class="is-text-center">Recibe las mejores <br> promociones en tu e-mail</h3>
                 <form action="">
                     <div class="Newsletter-content">

@@ -67,10 +67,15 @@
     </section>
 
     <section class="Social-feeds container">
-        <h3>
-            <span><i class="fab fa-instagram"></i></span>
-            <span>Inspirate #decorazón</span>
-        </h3>
+        <div class="row Social-feedsTitle ">
+            <h3>
+                <span><i class="fab fa-instagram"></i></span>
+                <span>Inspirate #decorazón</span>
+            </h3>
+            <h3>
+                <span>FACEBOOK <i class="fab fa-facebook"></i> @lilipink</span>
+            </h3>
+        </div>
         <div class="row Social-feedsContent">
             <div id="FeedId" class="FeedId row"></div>
 

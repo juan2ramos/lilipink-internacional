@@ -92,15 +92,13 @@
         </figure>
         <ul class="nav-icon col-14   col-m-5 is-list-less row justify-end">
 
-            <li>
-                <a href="" style="font-size: 20px; color: #e6007e"><i class="fas fa-map-marker-alt"></i></a>
-            </li>
 
             <li>
-                <a href="">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/public/images/bag.png" alt="">
-                </a>
+              <a href="">
+                <img src="<?php bloginfo( 'template_directory' ); ?>/public/images/wishLilipink.png" alt="">
+              </a>
             </li>
+
         </ul>
     </section>
 </header>

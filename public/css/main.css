@@ -2534,6 +2534,9 @@ a.fucsia {
     @media (min-width: 45rem) {
       .Map h3 {
         line-height: 1.5rem; } }
+  .Map h4 {
+    font-weight: bold;
+    margin-bottom: 3.9rem; }
   .Map h1 {
     border-bottom: .1rem solid #e6007e;
     font-weight: 600;
@@ -2567,7 +2570,8 @@ a.fucsia {
 .Slide-products {
   max-width: 125rem;
   margin: 5rem auto;
-  position: relative; }
+  position: relative;
+  text-align: center; }
   .Slide-products h3 {
     text-align: center;
     font-size: 2rem;
@@ -2581,33 +2585,31 @@ a.fucsia {
       .Slide-products h3 {
         line-height: 1.5rem; } }
   .Slide-products h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.3rem;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 0;
     font-weight: 600;
-    max-width: calc(100% - 40px); }
+    max-width: calc(100% - 40px);
+    margin: auto; }
   .Slide-products .icon {
-    font-size: 2rem;
-    background-color: #f7f7f7;
-    border-top: 1px solid #dddbdb;
-    border-radius: 20px;
-    cursor: pointer;
-    height: 40px;
+    position: absolute;
     right: 0;
-    top: 15px;
-    width: 40px;
-    position: relative;
-    padding: .5rem 1rem; }
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1.6rem 0 0 1.6rem;
+    padding: .6rem 3rem .6rem  1rem;
+    font-size: 1.2rem;
+    color: #6f6f6f; }
     @media (min-width: 45rem) {
       .Slide-products .icon {
         display: block; } }
   .Slide-products span {
-    font-size: 1.2rem;
-    color: #757575; }
+    font-size: 1.6rem;
+    color: #e6007e; }
   .Slide-products a {
-    color: #757575; }
+    color: black; }
   .Slide-products article {
     width: 100%;
     padding: 0 3rem; }
@@ -2627,6 +2629,9 @@ a.fucsia {
     left: -15px; }
   .Slide-products .flickity-prev-next-button.next {
     left: calc(100% - 35px); }
+
+.Slide-productsImage {
+  position: relative; }
 
 .Slide-productsContent {
   margin-bottom: 6rem; }
@@ -2709,7 +2714,7 @@ a.fucsia {
 
 @media (min-width: 600px) {
   #FeedId article:nth-child(n) .feedImage {
-    margin-right: 1rem; }
+    margin-right: 4rem; }
   #FeedId article:nth-child(2n) .feedImage {
     margin-left: 1rem; }
   .Social-feedsContent {
@@ -2718,6 +2723,9 @@ a.fucsia {
     max-width: 400px;
     max-height: 360px;
     overflow: scroll; }
+  .FeedId-h3 {
+    width: 400px;
+    text-align: center; }
   .feedImage {
     height: 170px;
     width: 170px;
@@ -2730,7 +2738,11 @@ a.fucsia {
     max-height: 360px;
     border-left: 2px solid #cbcbcb;
     padding-left: 2rem;
-    margin: 0; } }
+    margin: 0; }
+  .fb-page-h3 {
+    max-width: 200px;
+    width: 200px;
+    text-align: center; } }
 
 @media (min-width: 900px) {
   .Social-feedsContent {
@@ -2739,16 +2751,21 @@ a.fucsia {
     max-width: 600px;
     max-height: 560px;
     overflow: scroll; }
+  .FeedId-h3 {
+    width: 600px; }
   .feedImage {
-    height: 270px;
-    width: 270px;
+    height: 210px;
+    width: 210px;
     background-size: cover;
     background-position: center center;
     margin-bottom: 2rem; }
   .fb-page {
     max-width: 290px;
     width: 270px;
-    max-height: 560px; } }
+    max-height: 560px; }
+  .fb-page-h3 {
+    max-width: 290px;
+    width: 270px; } }
 
 @media (min-width: 1140px) {
   .Social-feedsContent {
@@ -2757,9 +2774,11 @@ a.fucsia {
     max-width: 780px;
     max-height: 760px;
     overflow: scroll; }
+  .FeedId-h3 {
+    width: 780px; }
   .feedImage {
-    height: 370px;
-    width: 370px;
+    height: 340px;
+    width: 340px;
     background-size: cover;
     background-position: center center;
     margin-bottom: 2rem; }
@@ -2767,12 +2786,26 @@ a.fucsia {
     max-width: 390px;
     width: 350px;
     max-height: 760px; }
-  .Social-feedsTitle h3:first-child {
-    text-align: center;
-    max-width: 370px; }
-  .Social-feedsTitle h3:first-child {
-    text-align: center;
-    max-width: 390px; } }
+  .fb-page-h3 {
+    max-width: 390px;
+    width: 350px; }
+  .Social-feedsTitle {
+    max-width: 114rem;
+    margin: auto; } }
+
+.banner-2 article {
+  text-align: center; }
+
+.Social-feeds h2 {
+  text-align: center;
+  padding: 1rem .5rem .8rem;
+  color: white;
+  background: #f0c3d8;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 57rem;
+  font-size: 1.8rem;
+  border-radius: 1rem; }
 
 .Footer-content {
   background: #e6007e;

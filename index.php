@@ -62,7 +62,7 @@
               <h2><a href="">Camiseta Manga sisa</a></h2>
 
             </div>
-            <span>Ref. LE01-012</span>
+            <span >$49.000</span>
           </article>
 		<?php endfor; ?>
     </div>
@@ -126,7 +126,7 @@
         </article>
         <article class="modal-info">
           <h2>CHAQUETA DEPORTIVA</h2>
-          <p class="ref">REF. LD03-002</p>
+          <p class="ref">$49.000</p>
           <h3>ESPECIFICACIONES</h3>
           <p>
             Chaqueta deportiva con capota, escogela con lineas blancas o rojas

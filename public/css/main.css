@@ -2714,7 +2714,7 @@ a.fucsia {
 
 @media (min-width: 600px) {
   #FeedId article:nth-child(n) .feedImage {
-    margin-right: 3.1rem; }
+    margin-right: 3.5rem; }
   #FeedId article:nth-child(2n) .feedImage {
     margin-left: 1rem; }
   .Social-feedsContent {
@@ -2731,7 +2731,7 @@ a.fucsia {
     width: 170px;
     background-size: cover;
     background-position: center center;
-    margin-bottom: 2rem; }
+    margin-bottom: 4.5rem; }
   .fb-page {
     max-width: 200px;
     width: 200px;

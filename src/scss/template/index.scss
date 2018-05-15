@@ -328,7 +328,14 @@
   #FeedId {
     max-width: 600px;
     max-height: 560px;
-    overflow: scroll;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+      -ms-overflow-style: none;
+    }
+
+
   }
   .FeedId-h3 {
     width: 600px;

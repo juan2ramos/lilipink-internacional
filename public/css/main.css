@@ -2240,7 +2240,7 @@ header {
     left: 14.3rem; }
 
 .nav-icon {
-  z-index: -2; }
+  z-index: 0; }
   .nav-icon li {
     margin: 0 1rem; }
 

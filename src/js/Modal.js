@@ -9,7 +9,7 @@ const Modal = document.querySelector('.modal'),
   wishProduct = document.getElementById('wishProduct'),
   modalThumb = document.getElementById('modalThumb'),
   modalImage = document.getElementById('modalImage'),
-  url = document.getElementsByName('body').dataset.url;
+  url = document.getElementById('body').dataset.url;
 
 export default function () {
 

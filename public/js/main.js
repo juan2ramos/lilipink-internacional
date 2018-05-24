@@ -15086,7 +15086,7 @@ var Modal = document.querySelector('.modal'),
     wishProduct = document.getElementById('wishProduct'),
     modalThumb = document.getElementById('modalThumb'),
     modalImage = document.getElementById('modalImage'),
-    url = document.getElementsByName('body').dataset.url;
+    url = document.getElementById('body').dataset.url;
 
 function getProduct(id) {
   _axios2.default.get(url + '/wp-json/wp/v2/producto/' + id).then(function (response) {

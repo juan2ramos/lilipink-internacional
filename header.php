@@ -19,7 +19,7 @@
 	<?php wp_head() ?>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 </head>
-<body <?php body_class(); ?> data-url="<?php echo site_url(); ?>">
+<body <?php body_class(); ?> data-url="<?php echo site_url(); ?>" id="body">
 <header>
     <section class="Header-bar row align-end">
         <div class="container row justify-between">

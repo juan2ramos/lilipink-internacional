@@ -94,7 +94,7 @@
 
 
             <li>
-              <a href="">
+              <a href="<?php echo site_url(); ?>/lista-deseos">
                 <img src="<?php bloginfo( 'template_directory' ); ?>/public/images/wishLilipink.png" alt="">
               </a>
             </li>

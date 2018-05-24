@@ -8,8 +8,8 @@ const Modal = document.querySelector('.modal'),
   contentProduct = document.getElementById('contentProduct'),
   wishProduct = document.getElementById('wishProduct'),
   modalThumb = document.getElementById('modalThumb'),
-  modalImage = document.getElementById('modalImage')
-;
+  modalImage = document.getElementById('modalImage'),
+  url = document.getElementsByName('body').dataset.url;
 
 export default function () {
 
@@ -24,10 +24,10 @@ export default function () {
   });
 }
 function getProduct(id) {
-  axios.get(`/wp-json/wp/v2/producto/${id}`)
+  axios.get(`${url}/wp-json/wp/v2/producto/${id}`)
     .then(function (response) {
       let product = response.data;
-      axios.get(`/wp-json/wp/v2/media?parent=${product.id}`).then(function (images) {
+      axios.get(`${url}/wp-json/wp/v2/media?parent=${product.id}`).then(function (images) {
         setInfoProduct(product, images.data)
       })
     })

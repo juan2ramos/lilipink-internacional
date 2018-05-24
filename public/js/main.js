@@ -15085,12 +15085,13 @@ var Modal = document.querySelector('.modal'),
     contentProduct = document.getElementById('contentProduct'),
     wishProduct = document.getElementById('wishProduct'),
     modalThumb = document.getElementById('modalThumb'),
-    modalImage = document.getElementById('modalImage');
+    modalImage = document.getElementById('modalImage'),
+    url = document.getElementsByName('body').dataset.url;
 
 function getProduct(id) {
-  _axios2.default.get('/wp-json/wp/v2/producto/' + id).then(function (response) {
+  _axios2.default.get(url + '/wp-json/wp/v2/producto/' + id).then(function (response) {
     var product = response.data;
-    _axios2.default.get('/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
+    _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
       setInfoProduct(product, images.data);
     });
   }).catch(function (error) {

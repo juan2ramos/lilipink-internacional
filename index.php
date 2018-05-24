@@ -47,24 +47,26 @@
 
   <section class="container Slide-products">
     <h3>Enamórate de estos productos</h3>
-    <div class="Slide-productsContent" data-flickity='{ "groupCells": true, "autoPlay": 5000  }'>
-		<?php for ( $i = 0; $i < 12; $i ++ ): ?>
+    <div class="Slide-productsContent" id="SlideProductsContent">
+		<?php $query = new WP_Query( [ 'post_type' => 'producto' ] );
+		while ( $query->have_posts() ) : $query->the_post(); ?>
+
           <article>
             <figure class="Slide-productsImage">
-              <img src="https://lilipink.vteximg.com.br/arquivos/ids/167243-500-745/915-M-2-1.jpg?v=636493791635530000"
-                   alt="915-M-2-1">
-              <a class="show-modal icon " href="">
+              <img src="<?php the_post_thumbnail_url(); ?>"
+                   alt="">
+              <a data-id="<?php the_ID() ?>" class="show-modal icon " href="">
                 VISTA RÁPIDA
                 <i aria-hidden="true" class="fa fa-search-plus"></i>
               </a>
             </figure>
             <div class="row justify-between">
-              <h2><a href="">Camiseta Manga sisa</a></h2>
+              <h2><a href=""><?php the_title() ?></a></h2>
 
             </div>
-            <span >$49.000</span>
+            <span><?php the_field( 'valor' ) ?></span>
           </article>
-		<?php endfor; ?>
+		<?php endwhile; ?>
     </div>
 
   </section>
@@ -98,45 +100,28 @@
       <section class="modal-content row ">
         <article class="modal-slide row">
           <div class="modal-images">
-            <ul class="is-list-less ">
-              <li>
-                <img
-                  src="https://lilipink.vteximg.com.br/arquivos/ids/164876-1000-1500/LD03-002_negrorayasrojas-1.jpg?v=636464347894330000"
-                  alt="">
-              </li>
-              <li>
-                <img
-                  src="https://lilipink.vteximg.com.br/arquivos/ids/164880-300-450/LD03-002_negrorayasrojas-2.jpg?v=636464347944830000"
-                  alt="">
-              </li>
+            <ul class="is-list-less " id="modalThumb">
             </ul>
           </div>
-          <ul class="is-list-less modal-image">
-            <li>
-              <img width="380"
-                   src="https://lilipink.vteximg.com.br/arquivos/ids/164876-1000-1500/LD03-002_negrorayasrojas-1.jpg?v=636464347894330000"
-                   alt="">
-            </li>
-            <li>
-              <img class="imageZoom" width="380"
-                   src="https://lilipink.vteximg.com.br/arquivos/ids/164880-300-450/LD03-002_negrorayasrojas-2.jpg?v=636464347944830000"
-                   alt="">
-            </li>
+          <ul class="is-list-less modal-image" id="modalImage">
           </ul>
         </article>
         <article class="modal-info">
-          <h2>CHAQUETA DEPORTIVA</h2>
-          <p class="ref">$49.000</p>
+          <h2 id="titleProduct"></h2>
+          <p id="priceProduct" class="ref">$49.000</p>
           <h3>ESPECIFICACIONES</h3>
-          <p>
+          <p id="contentProduct">
             Chaqueta deportiva con capota, escogela con lineas blancas o rojas
           </p>
-          <button class="modal-infoWishlist  ">
-            <div class="">
-              <img src="<?php bloginfo( 'template_url' ) ?>/public/images/wishLilipink.png">
-            </div>
-            <span class="wlBtnText">Enviar a la lista de deseos</span>
-          </button>
+          <form action="/" method="post">
+            <button class="modal-infoWishlist  ">
+              <input name="wishProduct" id="wishProduct" type="hidden" value="">
+              <div class="">
+                <img src="<?php bloginfo( 'template_url' ) ?>/public/images/wishLilipink.png">
+              </div>
+              <span  class="wlBtnText">Enviar a la lista de deseos</span>
+            </button>
+          </form>
         </article>
       </section>
     </div>

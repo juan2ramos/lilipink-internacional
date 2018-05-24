@@ -1,7 +1,7 @@
 import '../scss/index.scss';
 import Flickity from 'Flickity';
 import loadGoogleMapsApi from 'load-google-maps-api-2';
-import Magnify from './Zoom'
+import ModalProduct from './Modal'
 import INS from 'instagram-api'
 
 const instagramAPI = new INS('3646027596.c003d1f.a7cde2d348b5464db3bf27fecee21379');
@@ -9,13 +9,16 @@ const urlSite = document.querySelector('body').dataset.url;
 const SocialData = [];
 
 const FeedEl = document.getElementById('FeedId');
+
+ModalProduct();
+
 instagramAPI.userSelfMedia().then(function (response) {
 
   const post = response.data;
   for (let i in post) {
     //let thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
     let thumbnail = post[i].images.standard_resolution.url;
-    console.log(post[i].images)
+
     //thumbnail = thumbnail.replace('vp', 'xp');
     SocialData.push({
       "id": post[i].id,
@@ -120,19 +123,11 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 observer.observe(header);
 
-const menuToggle = document.getElementById('menu-toggle'),
+const
   NavAdmin = document.querySelector('.Nav-content'),
   FilterTitle = document.querySelectorAll('.filters-title'),
-  ModalDot = document.querySelectorAll('.modal-images li'),
-  Body = document.querySelector('body'),
-  Modal = document.querySelector('.modal'),
-  ModalSlide = new Flickity('.modal-image', {
-    imagesLoaded: true,
-    cellAlign: 'center',
-    lazyLoad: true,
-    contain: true,
-    wrapAround: true,
-  });
+  menuToggle = document.getElementById('menu-toggle'),
+  Body = document.querySelector('body');
 
 menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('open');
@@ -149,29 +144,23 @@ FilterTitle.forEach(function (el) {
   })
 });
 
-ModalDot.forEach(function (el, index) {
-  el.addEventListener('click', function () {
-    ModalSlide.select(index)
-  });
+
+
+
+
+const SlideProducts = new Flickity('#SlideProductsContent', {
+  imagesLoaded: false,
+  setGallerySize: true,
+  cellAlign: 'center',
+  groupCells: true,
+  lazyLoad: true,
+  contain: true,
+  wrapAround: true,
+  autoPlay: 5000
 });
-
-document.querySelectorAll('.show-modal').forEach(function (el) {
-  el.addEventListener('click', function (e) {
-    e.preventDefault();
-    Modal.classList.add('show');
-    ModalSlide.resize();
-    document.querySelectorAll('.modal-image img').forEach(function (el) {
-      Magnify(el, 3);
-    });
-  });
-});
-
-document.querySelector('.modal-close').addEventListener('click', function () {
-  Modal.classList.remove('show');
-});
-
-
-
+setTimeout(function () {
+  SlideProducts.resize();
+},3000);
 
 
 

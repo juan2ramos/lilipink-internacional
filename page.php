@@ -6,5 +6,5 @@
           <p>Sorry, no posts matched your criteria.</p>
 	    <?php endif; ?>
     </main>
-
+<p style="color: white">qweqwe</p>
 <?php get_footer();

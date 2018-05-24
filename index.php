@@ -113,7 +113,7 @@
           <p id="contentProduct">
             Chaqueta deportiva con capota, escogela con lineas blancas o rojas
           </p>
-          <form action="/" method="post">
+          <form action="<?php echo($_SERVER["PHP_SELF"]);?>" method="post">
             <button class="modal-infoWishlist  ">
               <input name="wishProduct" id="wishProduct" type="hidden" value="">
               <div class="">

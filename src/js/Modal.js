@@ -9,7 +9,8 @@ const Modal = document.querySelector('.modal'),
   wishProduct = document.getElementById('wishProduct'),
   modalThumb = document.getElementById('modalThumb'),
   modalImage = document.getElementById('modalImage'),
-  url = document.getElementById('body').dataset.url;
+  url = document.getElementById('body').dataset.url
+;
 
 export default function () {
 
@@ -24,11 +25,17 @@ export default function () {
   });
 }
 function getProduct(id) {
+
   axios.get(`${url}/wp-json/wp/v2/producto/${id}`)
     .then(function (response) {
       let product = response.data;
       axios.get(`${url}/wp-json/wp/v2/media?parent=${product.id}`).then(function (images) {
-        setInfoProduct(product, images.data)
+        axios.get(`${url}/wp-json/wp/v2/media?parent=${product.id}`).then(function (images) {
+
+          setInfoProduct(product, images.data)
+        })
+
+
       })
     })
     .catch(function (error) {
@@ -37,9 +44,10 @@ function getProduct(id) {
 }
 
 function setInfoProduct(product, images) {
+
   titleProduct.innerText = product.title.rendered;
-  priceProduct.innerText = product.id;
-  contentProduct.innerText = product.content.rendered;
+  priceProduct.innerText = product.valor;
+  contentProduct.innerHTML = product.content.rendered;
   wishProduct.value = product.id;
   images.forEach(function (image) {
     createImage(image.guid.rendered)

@@ -15089,10 +15089,14 @@ var Modal = document.querySelector('.modal'),
     url = document.getElementById('body').dataset.url;
 
 function getProduct(id) {
+
   _axios2.default.get(url + '/wp-json/wp/v2/producto/' + id).then(function (response) {
     var product = response.data;
     _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
-      setInfoProduct(product, images.data);
+      _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
+
+        setInfoProduct(product, images.data);
+      });
     });
   }).catch(function (error) {
     console.log(error);
@@ -15100,9 +15104,10 @@ function getProduct(id) {
 }
 
 function setInfoProduct(product, images) {
+
   titleProduct.innerText = product.title.rendered;
-  priceProduct.innerText = product.id;
-  contentProduct.innerText = product.content.rendered;
+  priceProduct.innerText = product.valor;
+  contentProduct.innerHTML = product.content.rendered;
   wishProduct.value = product.id;
   images.forEach(function (image) {
     createImage(image.guid.rendered);

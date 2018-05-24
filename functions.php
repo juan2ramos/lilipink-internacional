@@ -114,3 +114,21 @@ function post_custom_init() {
 }
 
 add_action( 'init', 'post_custom_init' );
+
+add_action( 'rest_api_init', 'add_custom_fields' );
+function add_custom_fields() {
+	register_rest_field(
+		'producto',
+		'valor', //New Field Name in JSON RESPONSEs
+		array(
+			'get_callback'    => 'get_custom_fields', // custom function name
+			'update_callback' => null,
+			'schema'          => null,
+		)
+	);
+
+}
+function get_custom_fields( $object, $field_name, $request ) {
+
+	return get_post_meta($object['id'], $field_name, true);
+}

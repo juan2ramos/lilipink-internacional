@@ -94,38 +94,7 @@
     </div>
 
   </section>
-  <div class="modal justify-center align-item-center">
-    <div class="modal-main">
-      <span class="modal-close"></span>
-      <section class="modal-content row ">
-        <article class="modal-slide row">
-          <div class="modal-images">
-            <ul class="is-list-less " id="modalThumb">
-            </ul>
-          </div>
-          <ul class="is-list-less modal-image" id="modalImage">
-          </ul>
-        </article>
-        <article class="modal-info">
-          <h2 id="titleProduct"></h2>
-          <p id="priceProduct" class="ref">$49.000</p>
-          <h3>ESPECIFICACIONES</h3>
-          <p id="contentProduct">
-            Chaqueta deportiva con capota, escogela con lineas blancas o rojas
-          </p>
-          <form action="<?php echo($_SERVER["PHP_SELF"]);?>" method="post">
-            <button class="modal-infoWishlist  ">
-              <input name="wishProduct" id="wishProduct" type="hidden" value="">
-              <div class="">
-                <img src="<?php bloginfo( 'template_url' ) ?>/public/images/wishLilipink.png">
-              </div>
-              <span  class="wlBtnText">Enviar a la lista de deseos</span>
-            </button>
-          </form>
-        </article>
-      </section>
-    </div>
-  </div>
+
   <div id="fb-root"></div>
   <script>(function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

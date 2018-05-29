@@ -17,9 +17,9 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 add_action( 'init', 'register_my_menus' );
 function register_my_menus() {
 	register_nav_menus( [
-			'menuHeader' => __( 'Menu Header' ),
-			'menuFooter' => __( 'Menu Footer' ),
-		] );
+		'menuHeader' => __( 'Menu Header' ),
+		'menuFooter' => __( 'Menu Footer' ),
+	] );
 }
 
 function template_widgets_init() {
@@ -117,18 +117,15 @@ add_action( 'init', 'post_custom_init' );
 
 add_action( 'rest_api_init', 'add_custom_fields' );
 function add_custom_fields() {
-	register_rest_field(
-		'producto',
-		'valor', //New Field Name in JSON RESPONSEs
-		array(
+	register_rest_field( 'producto', 'valor', //New Field Name in JSON RESPONSEs
+		[
 			'get_callback'    => 'get_custom_fields', // custom function name
 			'update_callback' => null,
 			'schema'          => null,
-		)
-	);
-
+		] );
 }
+
 function get_custom_fields( $object, $field_name, $request ) {
 
-	return get_post_meta($object['id'], $field_name, true);
+	return get_post_meta( $object['id'], $field_name, true );
 }

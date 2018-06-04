@@ -2597,7 +2597,7 @@ a.fucsia {
     position: absolute;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 1.6rem 0 0 1.6rem;
     padding: .6rem 3rem .6rem  1rem;
     font-size: 1.2rem;
@@ -3114,7 +3114,10 @@ a.fucsia {
   .modal-info p {
     font-weight: 100; }
     .modal-info p.ref {
-      font-size: 1.2rem; }
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: #e6007e;
+      line-height: 2rem; }
 
 .modal-images {
   max-width: 10rem;

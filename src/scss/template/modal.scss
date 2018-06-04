@@ -88,7 +88,10 @@
   p{
     font-weight: 100;
     &.ref{
-      font-size: 1.2rem;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: #e6007e;
+      line-height: 2rem;
     }
   }
 }

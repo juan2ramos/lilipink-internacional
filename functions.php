@@ -129,3 +129,4 @@ function get_custom_fields( $object, $field_name, $request ) {
 
 	return get_post_meta( $object['id'], $field_name, true );
 }
+add_action('init', 'register_my_menus');

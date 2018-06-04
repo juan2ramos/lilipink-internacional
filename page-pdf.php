@@ -16,6 +16,7 @@ $options->set('debugKeepTemp', TRUE);
 $options->set('isHtml5ParserEnabled', true);
 $dompdf = new Dompdf();
 $dompdf->loadHtml($html);
+//print_r($html);exit;
 $dompdf->setPaper('A4');
 $dompdf->render();
 $dompdf->stream($postPdf->getName());

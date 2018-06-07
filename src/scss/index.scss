@@ -44,3 +44,10 @@ p{
 @import "template/footer";
 @import "template/products";
 @import "template/modal";
+
+#piereg_login_form, #pie_regiser_form{
+  max-width: 90% !important;
+  width: 60rem !important;
+  margin: auto !important;
+
+}

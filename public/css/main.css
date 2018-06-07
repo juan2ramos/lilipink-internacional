@@ -3199,5 +3199,8 @@ a.fucsia {
   max-width: 90% !important;
   width: 60rem !important;
   margin: auto !important; }
+  #piereg_login_form .forgetmenot, #piereg_login_form .submit, #piereg_login_form #nav, #pie_regiser_form .forgetmenot, #pie_regiser_form .submit, #pie_regiser_form #nav {
+    text-align: right;
+    padding-right: 70px; }
 
 /*# sourceMappingURL=main.css.map*/

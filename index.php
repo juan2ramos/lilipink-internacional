@@ -8,17 +8,17 @@
 
     </div>
     <section class="container banner-2 row  margin-top-32 margin-bottom-32">
-        <article class="col-16 col-m-8 padding-4">
-            <figure>
-                <a href=""><img src="<?php bloginfo('template_url') ?>/public/images/izq.jpg" alt=""></a>
-            </figure>
-        </article>
+        <?php $query = new WP_Query(['post_type' => 'minibanner']);
+        while ($query->have_posts()) : $query->the_post(); ?>
 
-        <article class="col-16 col-m-8 padding-4">
-            <figure>
-                <a href=""><img src="<?php bloginfo('template_url') ?>/public/images/der.jpg" alt=""></a>
-            </figure>
-        </article>
+            <article class="col-16 col-m-8 padding-4">
+                <figure>
+                    <a href=""><img src="<?php the_post_thumbnail_url(); ?>" alt=""></a>
+                </figure>
+            </article>
+
+        <?php endwhile; ?>
+
     </section>
     <section class="Map row container  margin-bottom-20 align-item-center" id="Map">
         <h3 class="col-16"> ENCUENTRA NUESTRAS TIENDAS</h3>

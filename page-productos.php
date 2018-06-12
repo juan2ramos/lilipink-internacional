@@ -65,7 +65,7 @@
     </main>
     <div class="modal justify-center align-item-center">
         <div class="modal-main">
-            <span class="modal-close"></span>
+            <span class="modal-close"></span>sa
             <section class="modal-content row ">
                 <article class="modal-slide row">
                     <div class="modal-images">

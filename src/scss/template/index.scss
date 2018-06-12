@@ -24,6 +24,7 @@
 
 .Map-formContainer {
   background: #e6007e;
+  color: #FFF;
   max-height: 46rem;
   margin-bottom: 2rem;
   padding: 3rem 1rem 3rem;
@@ -42,7 +43,7 @@
 
 .Map {
   text-transform: uppercase;
-  color: #FFF;
+
   @include respond-to(large) {
     padding: 3rem 0;
   }

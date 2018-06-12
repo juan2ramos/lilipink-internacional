@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(17);
-var isBuffer = __webpack_require__(53);
+var isBuffer = __webpack_require__(52);
 
 /*global toString:true*/
 
@@ -1874,8 +1874,8 @@ function forEach(xs, f) {
 
 
 
-var base64 = __webpack_require__(76)
-var ieee754 = __webpack_require__(77)
+var base64 = __webpack_require__(77)
+var ieee754 = __webpack_require__(78)
 var isArray = __webpack_require__(23)
 
 exports.Buffer = Buffer
@@ -4019,7 +4019,7 @@ return EvEmitter;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(55);
+var normalizeHeaderName = __webpack_require__(54);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -4831,12 +4831,12 @@ module.exports = function bind(fn, thisArg) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(56);
-var buildURL = __webpack_require__(58);
-var parseHeaders = __webpack_require__(59);
-var isURLSameOrigin = __webpack_require__(60);
+var settle = __webpack_require__(55);
+var buildURL = __webpack_require__(57);
+var parseHeaders = __webpack_require__(58);
+var isURLSameOrigin = __webpack_require__(59);
 var createError = __webpack_require__(19);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(61);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(60);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -4933,7 +4933,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(62);
+      var cookies = __webpack_require__(61);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -5018,7 +5018,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(57);
+var enhanceError = __webpack_require__(56);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -5128,7 +5128,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(72);
+__webpack_require__(73);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
@@ -5230,7 +5230,7 @@ exports.Readable = exports;
 exports.Writable = __webpack_require__(30);
 exports.Duplex = __webpack_require__(6);
 exports.Transform = __webpack_require__(32);
-exports.PassThrough = __webpack_require__(82);
+exports.PassThrough = __webpack_require__(83);
 
 
 /***/ }),
@@ -5309,7 +5309,7 @@ util.inherits = __webpack_require__(5);
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(79);
+var debugUtil = __webpack_require__(80);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -5318,7 +5318,7 @@ if (debugUtil && debugUtil.debuglog) {
 }
 /*</replacement>*/
 
-var BufferList = __webpack_require__(80);
+var BufferList = __webpack_require__(81);
 var destroyImpl = __webpack_require__(29);
 var StringDecoder;
 
@@ -6717,7 +6717,7 @@ util.inherits = __webpack_require__(5);
 
 /*<replacement>*/
 var internalUtil = {
-  deprecate: __webpack_require__(81)
+  deprecate: __webpack_require__(82)
 };
 /*</replacement>*/
 
@@ -7837,8 +7837,8 @@ function done(stream, er, data) {
 
 
 
-var punycode = __webpack_require__(86);
-var util = __webpack_require__(88);
+var punycode = __webpack_require__(87);
+var util = __webpack_require__(89);
 
 exports.parse = urlParse;
 exports.resolve = urlResolve;
@@ -8555,8 +8555,8 @@ Url.prototype.parseHost = function() {
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(89);
-exports.encode = exports.stringify = __webpack_require__(90);
+exports.decode = exports.parse = __webpack_require__(90);
+exports.encode = exports.stringify = __webpack_require__(91);
 
 
 /***/ }),
@@ -8572,22 +8572,23 @@ var _Flickity = __webpack_require__(13);
 
 var _Flickity2 = _interopRequireDefault(_Flickity);
 
-var _loadGoogleMapsApi = __webpack_require__(48);
-
-var _loadGoogleMapsApi2 = _interopRequireDefault(_loadGoogleMapsApi);
-
-var _Modal = __webpack_require__(49);
+var _Modal = __webpack_require__(48);
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
-var _instagramApi = __webpack_require__(70);
+var _City = __webpack_require__(69);
+
+var _City2 = _interopRequireDefault(_City);
+
+var _instagramApi = __webpack_require__(71);
 
 var _instagramApi2 = _interopRequireDefault(_instagramApi);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+if (document.querySelector('#filter-country')) (0, _City2.default)();
+
 var instagramAPI = new _instagramApi2.default('3646027596.c003d1f.a7cde2d348b5464db3bf27fecee21379');
-var urlSite = document.querySelector('body').dataset.url;
 var SocialData = [];
 
 var FeedEl = document.getElementById('FeedId');
@@ -8628,57 +8629,6 @@ instagramAPI.userSelfMedia().then(function (response) {
 }, function (err) {
   console.log(err); // error info
 });
-
-// new Magnifier('.imageZoom');
-_loadGoogleMapsApi2.default.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
-_loadGoogleMapsApi2.default.language = 'es';
-
-(0, _loadGoogleMapsApi2.default)().then(function (googleMaps) {
-  var infoWindow = new google.maps.InfoWindow({ map: map });
-  var myLatLng = { lat: 9.928069, lng: -84.090725 };
-
-  var map = new googleMaps.Map(document.querySelector('.Map-google'), {
-    center: myLatLng,
-    zoom: 12
-  });
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: '',
-    icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
-  });
-
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      new google.maps.Marker({
-        position: pos,
-        map: map,
-        title: '',
-        icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
-      });
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      map.setCenter(pos);
-    }, function () {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}).catch(function (err) {
-  console.error(err);
-});
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
-}
 
 var header = document.querySelector('header'),
     menu = document.querySelector('.Nav-content'),
@@ -10843,90 +10793,6 @@ return Flickity;
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;;(function (root, factory) {  // eslint-disable-line
-  // Making module available as AMS, CommonJS and for browser.
-  /* eslint-disable no-undef */
-  if (typeof module === 'object' && module.exports) {
-    module.exports = factory();
-  } else if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-      return (function () { return factory(); });
-    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else {
-    root['loadGoogleMapsApi'] = factory();
-  }
-  /* eslint-enable no-undef */
-}(this, function() {
-  'use strict';
-  // Start of module definition.
-
-  function loader (opts) {
-    opts = opts || {};
-
-    var client = opts.client || loader.client;
-    var key = opts.key || loader.key;
-    var language = opts.language || loader.language;
-    var libraries = opts.libraries || loader.libraries || [];
-    var timeout = opts.timeout || loader.timeout || 10000;
-    var version = opts.version || loader.version;
-
-    var callbackName = '__googleMapsApiOnLoadCallback';
-
-    return new window.Promise(function (resolve, reject) {
-      // Exit if not running inside a browser.
-      if (typeof window === 'undefined') {
-        return reject(new Error('Can only load the Google Maps API in the browser'));
-      }
-
-      // Check whether API is already loaded.
-      if (window.google && window.google.maps) {
-        resolve(window.google.maps);
-      } else {
-        // Prepare the `script` tag to be inserted into the page.
-        var scriptElement = document.createElement('script');
-        var params = ['callback=' + callbackName];
-        if (client) params.push('client=' + client);
-        if (key) params.push('key=' + key);
-        if (language) params.push('language=' + language);
-        libraries = [].concat(libraries); // Ensure that `libraries` is an array
-        if (libraries.length) params.push('libraries=' + libraries.join(','));
-        if (version) params.push('v=' + version);
-        scriptElement.src = 'https://maps.googleapis.com/maps/api/js?' + params.join('&');
-
-        // Timeout if necessary.
-        var timeoutId = null;
-        if (timeout) {
-          timeoutId = window.setTimeout(function () {
-            window[callbackName] = function () {}; // Set the on load callback to a no-op.
-            reject(new Error('Could not load the Google Maps API'));
-          }, timeout);
-        }
-
-        // Hook up the on load callback.
-        window[callbackName] = function () {
-          if (timeoutId !== null) {
-            window.clearTimeout(timeoutId);
-          }
-          resolve(window.google.maps);
-          delete window[callbackName];
-        };
-
-        // Insert the `script` tag.
-        document.body.appendChild(scriptElement);
-      }
-    });
-  }
-
-  return loader;
-}));
-
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
@@ -10947,7 +10813,7 @@ exports.default = function () {
   });
 };
 
-var _Zoom = __webpack_require__(50);
+var _Zoom = __webpack_require__(49);
 
 var _Zoom2 = _interopRequireDefault(_Zoom);
 
@@ -10955,7 +10821,7 @@ var _Flickity = __webpack_require__(13);
 
 var _Flickity2 = _interopRequireDefault(_Flickity);
 
-var _axios = __webpack_require__(51);
+var _axios = __webpack_require__(50);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -11036,7 +10902,7 @@ function createImage(src) {
 }
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11121,13 +10987,13 @@ exports.default = function (img, zoom) {
 };
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(51);
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11135,7 +11001,7 @@ module.exports = __webpack_require__(52);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(17);
-var Axios = __webpack_require__(54);
+var Axios = __webpack_require__(53);
 var defaults = __webpack_require__(12);
 
 /**
@@ -11170,14 +11036,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(21);
-axios.CancelToken = __webpack_require__(68);
+axios.CancelToken = __webpack_require__(67);
 axios.isCancel = __webpack_require__(20);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(69);
+axios.spread = __webpack_require__(68);
 
 module.exports = axios;
 
@@ -11186,7 +11052,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports) {
 
 /*!
@@ -11213,7 +11079,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11221,8 +11087,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(12);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(63);
-var dispatchRequest = __webpack_require__(64);
+var InterceptorManager = __webpack_require__(62);
+var dispatchRequest = __webpack_require__(63);
 
 /**
  * Create a new instance of Axios
@@ -11299,7 +11165,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11318,7 +11184,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11351,7 +11217,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11379,7 +11245,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11452,7 +11318,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11512,7 +11378,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11587,7 +11453,7 @@ module.exports = (
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11630,7 +11496,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11690,7 +11556,7 @@ module.exports = (
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11749,18 +11615,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(65);
+var transformData = __webpack_require__(64);
 var isCancel = __webpack_require__(20);
 var defaults = __webpack_require__(12);
-var isAbsoluteURL = __webpack_require__(66);
-var combineURLs = __webpack_require__(67);
+var isAbsoluteURL = __webpack_require__(65);
+var combineURLs = __webpack_require__(66);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -11842,7 +11708,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11869,7 +11735,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11890,7 +11756,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11911,7 +11777,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11975,7 +11841,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12009,7 +11875,218 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+
+    (0, _loadGoogleMapsApi2.default)().then(googleMaps).catch(function (err) {
+        console.error(err);
+    });
+    cities.addEventListener('change', cityChange);
+    points.addEventListener('change', pointChange);
+};
+
+var _loadGoogleMapsApi = __webpack_require__(70);
+
+var _loadGoogleMapsApi2 = _interopRequireDefault(_loadGoogleMapsApi);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_loadGoogleMapsApi2.default.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
+_loadGoogleMapsApi2.default.language = 'es';
+
+var urlSite = document.querySelector('body').dataset.url,
+    myLatLng = { lat: 9.928069, lng: -84.090725 },
+    cities = document.querySelector('#filter-country'),
+    points = document.querySelector('#filter-points');
+var map = void 0;
+
+function cityChange() {
+
+    if (this.value === "0") {
+        points.setAttribute('disabled', 'disabled');
+    } else {
+        points.removeAttribute('disabled');
+        points.value = 0;
+    }
+
+    var lng = this.options[this.selectedIndex].dataset.lng;
+    var lat = this.options[this.selectedIndex].dataset.lat;
+    var cord = { lat: parseFloat(lat), lng: parseFloat(lng) };
+    map.setCenter(cord);
+    map.setZoom(12);
+
+    var options = document.querySelectorAll('option.for-hidden');
+    [].forEach.call(options, function (el) {
+        el.setAttribute('hidden', 'hidden');
+    });
+
+    var pointsCity = document.querySelectorAll('option[data-city=' + this.value + ']');
+    [].forEach.call(pointsCity, function (el) {
+        el.removeAttribute('hidden');
+    });
+}
+
+function pointChange() {
+    var lng = this.options[this.selectedIndex].dataset.lng;
+    var lat = this.options[this.selectedIndex].dataset.lat;
+    var cord = { lat: parseFloat(lat), lng: parseFloat(lng) };
+    map.setCenter(cord);
+    map.setZoom(14);
+}
+
+function generateMaker() {
+
+    [].forEach.call(points.options, function (el) {
+        if (el.dataset.lat === undefined || el.dataset.lng === undefined) return;
+        var contentString = el.dataset.info;
+        var marker = new google.maps.Marker({
+            position: { lat: parseFloat(el.dataset.lat), lng: parseFloat(el.dataset.lng) },
+            map: map,
+            title: 'asdasd',
+            icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
+        });
+        var info = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        marker.addListener('click', function () {
+            info.open(map, marker);
+        });
+    });
+}
+
+function googleMaps(googleMaps) {
+
+    map = new googleMaps.Map(document.querySelector('.Map-google'), {
+        center: myLatLng,
+        zoom: 12
+    });
+    generateMaker();
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: '',
+                icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
+            });
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+        }, function () {
+            handleLocationError(true, '', map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, '', map.getCenter());
+    }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
+}
+
+/***/ }),
 /* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;;(function (root, factory) {  // eslint-disable-line
+  // Making module available as AMS, CommonJS and for browser.
+  /* eslint-disable no-undef */
+  if (typeof module === 'object' && module.exports) {
+    module.exports = factory();
+  } else if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+      return (function () { return factory(); });
+    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {
+    root['loadGoogleMapsApi'] = factory();
+  }
+  /* eslint-enable no-undef */
+}(this, function() {
+  'use strict';
+  // Start of module definition.
+
+  function loader (opts) {
+    opts = opts || {};
+
+    var client = opts.client || loader.client;
+    var key = opts.key || loader.key;
+    var language = opts.language || loader.language;
+    var libraries = opts.libraries || loader.libraries || [];
+    var timeout = opts.timeout || loader.timeout || 10000;
+    var version = opts.version || loader.version;
+
+    var callbackName = '__googleMapsApiOnLoadCallback';
+
+    return new window.Promise(function (resolve, reject) {
+      // Exit if not running inside a browser.
+      if (typeof window === 'undefined') {
+        return reject(new Error('Can only load the Google Maps API in the browser'));
+      }
+
+      // Check whether API is already loaded.
+      if (window.google && window.google.maps) {
+        resolve(window.google.maps);
+      } else {
+        // Prepare the `script` tag to be inserted into the page.
+        var scriptElement = document.createElement('script');
+        var params = ['callback=' + callbackName];
+        if (client) params.push('client=' + client);
+        if (key) params.push('key=' + key);
+        if (language) params.push('language=' + language);
+        libraries = [].concat(libraries); // Ensure that `libraries` is an array
+        if (libraries.length) params.push('libraries=' + libraries.join(','));
+        if (version) params.push('v=' + version);
+        scriptElement.src = 'https://maps.googleapis.com/maps/api/js?' + params.join('&');
+
+        // Timeout if necessary.
+        var timeoutId = null;
+        if (timeout) {
+          timeoutId = window.setTimeout(function () {
+            window[callbackName] = function () {}; // Set the on load callback to a no-op.
+            reject(new Error('Could not load the Google Maps API'));
+          }, timeout);
+        }
+
+        // Hook up the on load callback.
+        window[callbackName] = function () {
+          if (timeoutId !== null) {
+            window.clearTimeout(timeoutId);
+          }
+          resolve(window.google.maps);
+          delete window[callbackName];
+        };
+
+        // Insert the `script` tag.
+        document.body.appendChild(scriptElement);
+      }
+    });
+  }
+
+  return loader;
+}));
+
+
+
+/***/ }),
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Guilherme Farias. and other Contributors
@@ -12036,8 +12113,8 @@ module.exports = function spread(callback) {
 // OTHER DEALINGS IN THE SOFTWARE.
 
 module.exports = function(accessToken) {
-	var q = __webpack_require__(71);
-	var https = __webpack_require__(73);
+	var q = __webpack_require__(72);
+	var https = __webpack_require__(74);
 	var query = __webpack_require__(34);
 	var host = 'api.instagram.com';
 	var port = 443;
@@ -12493,7 +12570,7 @@ module.exports = function(accessToken) {
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, setImmediate) {// vim:ts=4:sts=4:sw=4:
@@ -14576,7 +14653,7 @@ return Q;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(22).setImmediate))
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -14769,10 +14846,10 @@ return Q;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(2)))
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var http = __webpack_require__(74)
+var http = __webpack_require__(75)
 var url = __webpack_require__(33)
 
 var https = module.exports
@@ -14806,12 +14883,12 @@ function validateParams (params) {
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(75)
-var extend = __webpack_require__(84)
-var statusCodes = __webpack_require__(85)
+/* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(76)
+var extend = __webpack_require__(85)
+var statusCodes = __webpack_require__(86)
 var url = __webpack_require__(33)
 
 var http = exports
@@ -14891,14 +14968,14 @@ http.METHODS = [
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer, global, process) {var capability = __webpack_require__(24)
 var inherits = __webpack_require__(5)
-var response = __webpack_require__(78)
+var response = __webpack_require__(79)
 var stream = __webpack_require__(25)
-var toArrayBuffer = __webpack_require__(83)
+var toArrayBuffer = __webpack_require__(84)
 
 var IncomingMessage = response.IncomingMessage
 var rStates = response.readyStates
@@ -15204,7 +15281,7 @@ var unsafeHeaders = [
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7).Buffer, __webpack_require__(1), __webpack_require__(2)))
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15325,7 +15402,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -15415,7 +15492,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, Buffer, global) {var capability = __webpack_require__(24)
@@ -15604,13 +15681,13 @@ IncomingMessage.prototype._onXHRProgress = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(7).Buffer, __webpack_require__(1)))
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15690,7 +15767,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -15764,7 +15841,7 @@ function config (name) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15817,7 +15894,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 };
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(7).Buffer
@@ -15850,7 +15927,7 @@ module.exports = function (buf) {
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports) {
 
 module.exports = extend
@@ -15875,7 +15952,7 @@ function extend() {
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -15945,7 +16022,7 @@ module.exports = {
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
@@ -16481,10 +16558,10 @@ module.exports = {
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(87)(module), __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(88)(module), __webpack_require__(1)))
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -16512,7 +16589,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16535,7 +16612,7 @@ module.exports = {
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16626,7 +16703,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

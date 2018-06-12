@@ -2503,6 +2503,7 @@ a.fucsia {
 
 .Map-formContainer {
   background: #e6007e;
+  color: #FFF;
   max-height: 46rem;
   margin-bottom: 2rem;
   padding: 3rem 1rem 3rem;
@@ -2517,8 +2518,7 @@ a.fucsia {
     padding-left: 3rem; } }
 
 .Map {
-  text-transform: uppercase;
-  color: #FFF; }
+  text-transform: uppercase; }
   @media (min-width: 920px) {
     .Map {
       padding: 3rem 0; } }

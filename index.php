@@ -28,13 +28,33 @@
 
             <p>Selecciona tu ciudad</p>
             <select id="filter-country">
-                <option>Ciudad</option>
-                <option value="0">Bogotá</option>
+                <option value="0">Ciudad</option>
+                <?php
+                $terms = get_terms('ciudad');
+                if ($terms && !is_wp_error($terms)) :
+                    foreach ($terms as $term) : ?>
+                        <option
+                                    data-lng="<?php echo get_field("longitud", $term->taxonomy . '_' . $term->term_id); ?>"
+                                data-lat="<?php echo get_field("latitud", $term->taxonomy . '_' . $term->term_id); ?>"
+                                value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
+                    <?php endforeach;
+                endif; ?>
+
             </select>
             <p>Selecciona tienda</p>
-            <select id="filter-country">
-                <option>Selecciona tienda</option>
-                <option value="0">tienda</option>
+            <select id="filter-points" disabled>
+                <option value="0">Selecciona tienda</option>
+                <?php
+                $points = get_posts(['post_type' => 'puntos']);
+                foreach ($points as $point) :?>
+                    <option class="for-hidden"
+                            data-city="<?php echo get_the_terms($point->ID, 'ciudad')[0]->slug ?>"
+                            data-lng="<?php echo get_field("Longitud", $point->ID); ?>"
+                            data-info="<?php echo esc_html($point->post_content) ?>"
+                            data-lat="<?php echo get_field("Latitud", $point->ID); ?>"
+                    > <?php echo $point->post_title ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
             <p>
                 <span>Dirección de la tienda</span> <br>
@@ -107,5 +127,8 @@
             js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12&appId=1489685601143763&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+<?php foreach ($terms as $term) : ?>
+    <?php print_r($term->term_id) ; ?>
+<?php endforeach; ?>
 <?php get_footer();
 

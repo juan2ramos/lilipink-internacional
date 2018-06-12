@@ -204,6 +204,7 @@ function customize_register_theme($wp_customize)
         'label' => __('Copy 1', 'lilipink'),
         'section' => 'settings_theme',
         'settings' => 'settings_theme[copy1]',
+        'type' => 'textarea',
     ));
     //copy2
     $wp_customize->add_setting('settings_theme[copy2]', array(
@@ -216,6 +217,44 @@ function customize_register_theme($wp_customize)
         'label' => __('Copy 2', 'lilipink'),
         'section' => 'settings_theme',
         'settings' => 'settings_theme[copy2]',
+        'type' => 'textarea',
+    ));
+    //facebookpdf
+    $wp_customize->add_setting('settings_theme[facebookpdf]', array(
+        'default' => '',
+        'capability' => 'edit_theme_options',
+        'type' => 'option',
+        'transport' => 'postMessage'
+    ));
+    $wp_customize->add_control('lilipink_facebookpdf', array(
+        'label' => __('Nombre facebook pdf', 'lilipink'),
+        'section' => 'settings_theme',
+        'settings' => 'settings_theme[facebookpdf]',
+    ));
+    //inspdf
+    $wp_customize->add_setting('settings_theme[inspdf]', array(
+        'default' => '',
+        'capability' => 'edit_theme_options',
+        'type' => 'option',
+        'transport' => 'postMessage'
+    ));
+    $wp_customize->add_control('lilipink_instagrampdf', array(
+        'label' => __('Nombre Instagram pdf', 'lilipink'),
+        'section' => 'settings_theme',
+        'settings' => 'settings_theme[inspdf]',
+    ));
+    //copypdf
+    $wp_customize->add_setting('settings_theme[copypdf]', array(
+        'default' => '',
+        'capability' => 'edit_theme_options',
+        'type' => 'option',
+        'transport' => 'postMessage'
+    ));
+    $wp_customize->add_control('lilipink_copypdf', array(
+        'label' => __('Copy pdf', 'lilipink'),
+        'section' => 'settings_theme',
+        'settings' => 'settings_theme[copypdf]',
+        'type' => 'textarea',
     ));
 }
 

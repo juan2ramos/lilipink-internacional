@@ -6,29 +6,33 @@
  * Date: 13/04/17
  * Time: 11:59 PM
  */
-class PostPdf{
-	function getHtml() {
-		global $wpdb;
-		$current_user = wp_get_current_user();
-		$id           = $current_user->ID;
-		$products     = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}posts 
-	inner join {$wpdb->prefix}wish ON {$wpdb->prefix}posts.ID = {$wpdb->prefix}wish.post_id where {$wpdb->prefix}wish.user_id = {$id}", OBJECT );
+class PostPdf
+{
+    function getHtml()
+    {
+        global $wpdb;
+        $current_user = wp_get_current_user();
+        $id = $current_user->ID;
+        $products = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}posts 
+	inner join {$wpdb->prefix}wish ON {$wpdb->prefix}posts.ID = {$wpdb->prefix}wish.post_id where {$wpdb->prefix}wish.user_id = {$id}", OBJECT);
 
-		if ( ! $products ) {
-			return false;
-		}
+        if (!$products) {
+            return false;
+        }
 
-		return $this->generateHtml( $products );
-	}
+        return $this->generateHtml($products);
+    }
 
-	public function getName() {
-		return 'pdf';
-	}
+    public function getName()
+    {
+        return 'pdf';
+    }
 
-	private function generateHtml( $products ) {
-		$root = $_SERVER["DOCUMENT_ROOT"];
-
-		$html = '
+    private function generateHtml($products)
+    {
+        $root = $_SERVER["DOCUMENT_ROOT"];
+        $datos = get_option('settings_theme');
+        $html = '
 
 
 <div style=" position: fixed; top: 0; left: 0; width: 100%;height: 100%;z-index: -1">
@@ -42,24 +46,27 @@ class PostPdf{
 <h2 style="text-align: center; color: #777; font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif">Mi lista de deseos Lilipink</h2>
 <table style="margin-top: 16px">
 ';
-		$i    = 0;
-		foreach ( $products as $product ) {
-			$i++;
-			if($i % 4 == 0)
-				$html .="<tr>";
-			$img = str_replace( site_url(), $root, get_the_post_thumbnail_url( $product->post_id ) );
-			$html .= '<td style="display: inline-block; width: 25%;margin-bottom: 20px"> ';
-			$html .= '<img width="150px"  style="padding-left:10px;" src="' . $img . '">';
-			$html .= '<h4 style="margin: 4px 0 0;text-align: center;font-size: 12px; color: #777; font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif">' . $product->post_title . '</h4>';
-			$html .= '<p style="font-weight:bold;font-size: 13px; margin: 0 ;text-align: center;color: #e6007e">' . get_post_field( 'valor', $product->post_id ) . '</p>';
-			$html .= '</td>';
+        $i = 0;
+        foreach ($products as $product) {
+            $i++;
+            if ($i % 4 == 0)
+                $html .= "<tr>";
+            $img = str_replace(site_url(), $root, get_the_post_thumbnail_url($product->post_id));
+            $html .= '<td style="display: inline-block; width: 25%;margin-bottom: 20px"> ';
+            $html .= '<img width="150px"  style="padding-left:10px;" src="' . $img . '">';
+            $html .= '<h4 style="margin: 4px 0 0;text-align: center;font-size: 12px; color: #777; font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif">' . $product->post_title . '</h4>';
+            $html .= '<p style="font-weight:bold;font-size: 13px; margin: 0 ;text-align: center;color: #e6007e">' . get_post_field('valor', $product->post_id) . '</p>';
+            $html .= '</td>';
 
-			if($i % 4 == 0)
-				$html .="</tr>";
+            if ($i % 4 == 0)
+                $html .= "</tr>";
 
-		}
+        }
+        $facebookpdf = $datos['facebookpdf'];
+        $inspdf = $datos['inspdf'];
+        $copypdf = $datos['copypdf'];
 
-		$html .= '
+        $html .= '
 </table>
 <div style="text-align: center;
 		padding: 15px;
@@ -71,16 +78,16 @@ class PostPdf{
 	position: fixed;
 	bottom: 100px;
 		left: calc(50% - 400px );">
-	<p> C.C. Los Próceres, 16 calle 02-00 zona 10 Guatemala / C.C. Frutal Boulevard, El Frutal 14-00 Complejo Comercial El Frutal, Local 37, zona 5,Villa Nueva, Guatemala
+	<p> '. $copypdf .'
 		</p>
 	<span>
 	<img width="15px" src="' . $root . '/wp-content/themes/lilipink/public/images/face-pdf.png" alt="">
-	lilipinkguatemala</span>
+	' . $facebookpdf . '</span>
 	<span>
 	<img width="15px" src="' . $root . '/wp-content/themes/lilipink/public/images/inst-pdf.png" alt="">
-	lilipinkgt</span>
+	' . $inspdf . '</span>
 </div>	';
 
-		return $html;
-	}
+        return $html;
+    }
 }

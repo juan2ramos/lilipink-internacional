@@ -10797,20 +10797,20 @@ return Flickity;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 exports.default = function () {
 
-  document.querySelectorAll('.show-modal').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      getProduct(el.dataset.id);
-      document.querySelectorAll('.modal-image img').forEach(function (el) {
-        (0, _Zoom2.default)(el, 3);
-      });
+    document.querySelectorAll('.show-modal').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            getProduct(el.dataset.id);
+            document.querySelectorAll('.modal-image img').forEach(function (el) {
+                (0, _Zoom2.default)(el, 3);
+            });
+        });
     });
-  });
 };
 
 var _Zoom = __webpack_require__(49);
@@ -10834,71 +10834,71 @@ var Modal = document.querySelector('.modal'),
     wishProduct = document.getElementById('wishProduct'),
     modalThumb = document.getElementById('modalThumb'),
     modalImage = document.getElementById('modalImage'),
+    refProduct = document.getElementById('refProduct'),
     url = document.getElementById('body').dataset.url;
 
 function getProduct(id) {
 
-  _axios2.default.get(url + '/wp-json/wp/v2/producto/' + id).then(function (response) {
-    var product = response.data;
-    _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
-      _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
+    _axios2.default.get(url + '/wp-json/wp/v2/producto/' + id).then(function (response) {
+        var product = response.data;
+        _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
+            _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
 
-        setInfoProduct(product, images.data);
-      });
+                setInfoProduct(product, images.data);
+            });
+        });
+    }).catch(function (error) {
+        console.log(error);
     });
-  }).catch(function (error) {
-    console.log(error);
-  });
 }
 
 function setInfoProduct(product, images) {
-
-  titleProduct.innerText = product.title.rendered;
-  priceProduct.innerText = product.valor;
-  contentProduct.innerHTML = product.content.rendered;
-  wishProduct.value = product.id;
-  images.forEach(function (image) {
-    createImage(image.guid.rendered);
-  });
-  var ModalSlide = new _Flickity2.default('.modal-image', {
-    imagesLoaded: true,
-    cellAlign: 'center',
-    lazyLoad: true,
-    contain: true,
-    wrapAround: true
-  });
-  Modal.classList.add('show');
-  ModalSlide.resize();
-  document.querySelector('.modal-close').addEventListener('click', function () {
-    ModalSlide.destroy();
-    Modal.classList.remove('show');
-    modalThumb.textContent = "";
-    modalImage.textContent = "";
-  });
-  var ModalDot = document.querySelectorAll('.modal-images li');
-  ModalDot.forEach(function (el, index) {
-    el.addEventListener('click', function () {
-      ModalSlide.select(index);
+    console.log(product);
+    titleProduct.innerText = product.title.rendered;
+    priceProduct.innerText = product.valor;
+    refProduct.innerText = product.referencia;
+    contentProduct.innerHTML = product.content.rendered;
+    wishProduct.value = product.id;
+    images.forEach(function (image) {
+        createImage(image.guid.rendered);
     });
-  });
-  console.log(titleProduct);
-  console.log(images);
+    var ModalSlide = new _Flickity2.default('.modal-image', {
+        imagesLoaded: true,
+        cellAlign: 'center',
+        lazyLoad: true,
+        contain: true,
+        wrapAround: true
+    });
+    Modal.classList.add('show');
+    ModalSlide.resize();
+    document.querySelector('.modal-close').addEventListener('click', function () {
+        ModalSlide.destroy();
+        Modal.classList.remove('show');
+        modalThumb.textContent = "";
+        modalImage.textContent = "";
+    });
+    var ModalDot = document.querySelectorAll('.modal-images li');
+    ModalDot.forEach(function (el, index) {
+        el.addEventListener('click', function () {
+            ModalSlide.select(index);
+        });
+    });
 }
 
 function createImage(src) {
-  var li = document.createElement('li');
-  var li2 = document.createElement('li');
-  var image = document.createElement('img');
-  var image2 = document.createElement('img');
+    var li = document.createElement('li');
+    var li2 = document.createElement('li');
+    var image = document.createElement('img');
+    var image2 = document.createElement('img');
 
-  image.setAttribute('src', src);
-  image2.setAttribute('src', src);
-  li.appendChild(image);
-  modalImage.appendChild(li);
+    image.setAttribute('src', src);
+    image2.setAttribute('src', src);
+    li.appendChild(image);
+    modalImage.appendChild(li);
 
-  image.setAttribute('width', '380');
-  li2.appendChild(image2);
-  modalThumb.appendChild(li2);
+    image.setAttribute('width', '380');
+    li2.appendChild(image2);
+    modalThumb.appendChild(li2);
 }
 
 /***/ }),
@@ -11940,7 +11940,7 @@ function pointChange() {
     var lat = this.options[this.selectedIndex].dataset.lat;
     var cord = { lat: parseFloat(lat), lng: parseFloat(lng) };
     map.setCenter(cord);
-    map.setZoom(14);
+    map.setZoom(16);
 }
 
 function generateMaker() {

@@ -50,7 +50,7 @@ function pointChange() {
     let lat = this.options[this.selectedIndex].dataset.lat;
     let cord = {lat: parseFloat(lat), lng: parseFloat(lng)};
     map.setCenter(cord);
-    map.setZoom(14);
+    map.setZoom(16);
 }
 
 function generateMaker() {

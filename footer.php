@@ -1,3 +1,4 @@
+<?php $datos = get_option('settings_theme');?>
 <footer>
     <section class="Footer-content">
         <div class="row container-less justify-between ">
@@ -8,7 +9,7 @@
                     <li><a href="">Preguntas Frecuentes</a></li>
                     <li><a href="">Condiciones y Restricciones</a></li>
                     <li><a href="">Ventas al por mayor</a></li>
-                    <li><strong>PBX: 6702400</strong></li>
+                    <li><strong><?php echo  $datos['phone']?></strong></li>
                 </ul>
             </article>
             <article class="col-16 col-m-8 Newsletter">
@@ -22,8 +23,8 @@
                 </form>
                 <p class="is-text-center">O en nuestras redes sociales</p>
                 <ul class="is-list-less row justify-center Footer-social">
-                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="<?php echo  $datos['face']?>"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="<?php echo  $datos['ins']?>"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </article>
         </div>
@@ -31,8 +32,8 @@
 
     <section class="row justify-center Footer-foot">
         <div class="col-10 is-text-center">
-            <p>TELÉFONO: (11) 111 1111 - CORREO: CONTACTO.TIENDA@LILIPINK.COM</p>
-            <p>© COPYRIGHT 2017. TODOS LOS DERECHOS RESERVADOS A Pink Life S.A.S.</p>
+            <p><?php echo  $datos['copy1']?> </p>
+            <p><?php echo  $datos['copy2']?></p>
         </div>
     </section>
 </footer>
@@ -51,6 +52,7 @@
       <article class="modal-info">
         <h2 id="titleProduct"></h2>
         <p id="priceProduct" class="ref">$49.000</p>
+          <i>REF: <span id="refProduct"></span></i>
         <h3>ESPECIFICACIONES</h3>
         <div id="contentProduct"></div>
         <form action="<?php echo($_SERVER["PHP_SELF"]);?>" method="post">

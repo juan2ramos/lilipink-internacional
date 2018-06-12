@@ -84,8 +84,8 @@
                     </figure>
                     <div class="row justify-between">
                         <h2><a href=""><?php the_title() ?></a></h2>
-
                     </div>
+                    <i>REF: <?php the_field('referencia') ?></i>
                     <span><?php the_field('valor') ?></span>
                 </article>
             <?php endwhile; ?>
@@ -127,8 +127,5 @@
             js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12&appId=1489685601143763&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-<?php foreach ($terms as $term) : ?>
-    <?php print_r($term->term_id) ; ?>
-<?php endforeach; ?>
 <?php get_footer();
 

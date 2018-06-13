@@ -136,6 +136,12 @@ function add_custom_fields()
             'update_callback' => null,
             'schema' => null,
         ]);
+    register_rest_field('producto', 'fotos', //New Field Name in JSON RESPONSEs
+        [
+            'get_callback' => 'get_custom_fields', // custom function name
+            'update_callback' => null,
+            'schema' => null,
+        ]);
 }
 
 function get_custom_fields($object, $field_name, $request)
@@ -259,3 +265,15 @@ function customize_register_theme($wp_customize)
 }
 
 
+function ws_register_images_field() {
+    register_rest_field(
+        'producto',
+        'fotos',
+        array(
+            'get_callback'    => 'ws_get_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+add_filter( 'acf_photo_gallery_caption_from_attachment', 'return_true' );

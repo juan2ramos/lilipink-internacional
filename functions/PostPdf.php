@@ -55,6 +55,7 @@ class PostPdf
             $html .= '<td style="display: inline-block; width: 25%;margin-bottom: 20px"> ';
             $html .= '<img width="150px"  style="padding-left:10px;" src="' . $img . '">';
             $html .= '<h4 style="margin: 4px 0 0;text-align: center;font-size: 12px; color: #777; font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif">' . $product->post_title . '</h4>';
+            $html .= '<p style="font-weight:bold;font-size: 12px; margin: 0 ;text-align: center;color: #999"> REF:' . get_post_field('referencia', $product->post_id) . '</p>';
             $html .= '<p style="font-weight:bold;font-size: 13px; margin: 0 ;text-align: center;color: #e6007e">' . get_post_field('valor', $product->post_id) . '</p>';
             $html .= '</td>';
 

@@ -5,10 +5,27 @@
             <article class="col-16 col-m-8 Footer-links is-text-center">
                 <h3>enlaces de interés</h3>
                 <ul class="is-list-less">
-                    <li><a href="">Sobre Nosotros</a></li>
-                    <li><a href="">Preguntas Frecuentes</a></li>
-                    <li><a href="">Condiciones y Restricciones</a></li>
-                    <li><a href="">Ventas al por mayor</a></li>
+                    <?php
+                    $menu_name = 'menuFooter';
+                    $locations = get_nav_menu_locations();
+                    if ( ! empty( $locations ) ):
+                        $menu      = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                        $menuitems = wp_get_nav_menu_items( $menu->term_id, [ 'order' => 'DESC' ] );
+
+                        if ( $menuitems ):
+                            foreach ( $menuitems as $item ):
+                                $link  = $item->url;
+                                $title = $item->title;
+                                $class = $item->classes[0];
+                                ?>
+                                <li>
+                                    <a class="<?php echo $class ?>" href="<?php echo $link ?>">
+                                        <?php echo $title ?></a>
+                                </li>
+                            <?php
+                            endforeach; endif;
+
+                    endif; ?>
                     <li><strong><?php echo  $datos['phone']?></strong></li>
                 </ul>
             </article>

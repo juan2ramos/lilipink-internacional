@@ -32,13 +32,8 @@ function getProduct(id) {
         .then(function (response) {
             let product = response.data;
             axios.get(`${url}/wp-json/wp/v2/media?parent=${product.id}`).then(function (images) {
-                axios.get(`${url}/wp-json/wp/v2/media?parent=${product.id}`).then(function (images) {
-
-                    setInfoProduct(product, images.data)
-                })
-
-
-            })
+                setInfoProduct(product, images.data)
+            });
         })
         .catch(function (error) {
             console.log(error);

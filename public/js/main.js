@@ -10842,10 +10842,7 @@ function getProduct(id) {
     _axios2.default.get(url + '/wp-json/wp/v2/producto/' + id).then(function (response) {
         var product = response.data;
         _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
-            _axios2.default.get(url + '/wp-json/wp/v2/media?parent=' + product.id).then(function (images) {
-
-                setInfoProduct(product, images.data);
-            });
+            setInfoProduct(product, images.data);
         });
     }).catch(function (error) {
         console.log(error);

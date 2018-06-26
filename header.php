@@ -112,7 +112,7 @@
     <ul class="is-list-less row justify-center">
       <li class="Nav-contentLogo"><a href="">
 		      <?php if ( site_url() == 'http://intimasecret.com.pa' ): ?>
-                <img style="max-width: 221px;" src="<?php bloginfo( 'template_url' ) ?>/public/images/intimasecret.png"
+                <img style="max-width: 92px;" src="<?php bloginfo( 'template_url' ) ?>/public/images/intimasecret.png"
                      alt="">
 		      <?php else: ?>
           <svg width="92px" height="18px" viewBox="0 0 92 18" version="1.1" xmlns="http://www.w3.org/2000/svg"

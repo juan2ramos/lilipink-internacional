@@ -277,3 +277,13 @@ function ws_register_images_field() {
     );
 }
 add_filter( 'acf_photo_gallery_caption_from_attachment', 'return_true' );
+function countries_widgets_init() {
+	register_sidebar( array(
+		'name'          => 'Paises',
+		'id'            => 'countries-id',
+		'before_widget' => '<div class="Header-country">',
+		'after_widget'  => '</div>',
+	) );
+}
+
+add_action( 'widgets_init', 'countries_widgets_init' );

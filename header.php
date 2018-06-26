@@ -47,25 +47,7 @@
           <li><a href="">Créditos</a></li>
           <li><a href="">Franquicias</a></li>
         </ul>
-        <div class="Header-country">
-          <div class="row align-center country">
-            <figure class="COL"></figure>
-            <p>Colombia</p>
-            <span>▼</span>
-          </div>
-          <ul class="is-list-less countries">
-            <li class="row align-item-center"
-            ">
-            <figure class="CR"></figure>
-            <a href="">COSTA RICA</a></li>
-            <li class="row align-item-center">
-              <figure class="GUA"></figure>
-              <a href="">GUATEMALA</a></li>
-            <li class="row align-item-center">
-              <figure class="PAN"></figure>
-              <a href="">PANAMÁ</a></li>
-          </ul>
-        </div>
+	      <?php dynamic_sidebar( 'countries-id' ); ?>
       </nav>
     </div>
   </section>

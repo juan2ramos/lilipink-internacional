@@ -26,6 +26,9 @@
       <div class="Header-logo">
         <span></span>
         <a href="<?php echo site_url(); ?>">
+	        <?php if( site_url() == 'http://intimasecret.com.pa/'):?>
+              <img src="<?php bloginfo( 'template_url' ) ?>/public/images/intimasecret.png" alt="">
+		        <?php else:?>
           <svg width="62px" height="11px" viewBox="0 0 62 11" version="1.1" xmlns="http://www.w3.org/2000/svg"
                xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -39,6 +42,7 @@
               </g>
             </g>
           </svg>
+	        <?php endif ?>
         </a>
       </div>
       <nav class="Header-nav row align-center">

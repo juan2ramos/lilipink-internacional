@@ -3,7 +3,7 @@ import Flickity from 'Flickity';
 import ModalProduct from './Modal'
 import City from './City'
 import INS from 'instagram-api'
-
+import animateScrollTo from 'animated-scroll-to';
 
 if (document.querySelector('#filter-country'))
   City();
@@ -79,7 +79,14 @@ const
   NavAdmin = document.querySelector('.Nav-content'),
   FilterTitle = document.querySelectorAll('.filters-title'),
   menuToggle = document.getElementById('menu-toggle'),
+  shop = document.querySelector('.shop'),
   Body = document.querySelector('body');
+
+if(shop){
+  shop.addEventListener('click',function () {
+    animateScrollTo(document.querySelector('#Map'));
+  })
+}
 
 menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('open');

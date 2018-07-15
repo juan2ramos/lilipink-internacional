@@ -86,7 +86,7 @@ if(shop){
   shop.addEventListener('click',function () {
     const MapId = document.querySelector('#Map');
     if (MapId){
-        animateScrollTo();
+        animateScrollTo(MapId);
     } else{
         window.location.href = url + "/#Map";
     }

@@ -8663,7 +8663,7 @@ if (shop) {
   shop.addEventListener('click', function () {
     var MapId = document.querySelector('#Map');
     if (MapId) {
-      (0, _animatedScrollTo2.default)();
+      (0, _animatedScrollTo2.default)(MapId);
     } else {
       window.location.href = url + "/#Map";
     }

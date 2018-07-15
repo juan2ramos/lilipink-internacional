@@ -11,7 +11,7 @@ if (document.querySelector('#filter-country'))
 
 const instagramAPI = new INS('3646027596.c003d1f.a7cde2d348b5464db3bf27fecee21379');
 const SocialData = [];
-
+const url = document.getElementById('body').dataset.url;
 const FeedEl = document.getElementById('FeedId');
 
 ModalProduct();
@@ -84,7 +84,13 @@ const
 
 if(shop){
   shop.addEventListener('click',function () {
-    animateScrollTo(document.querySelector('#Map'));
+    const MapId = document.querySelector('#Map');
+    if (MapId){
+        animateScrollTo();
+    } else{
+        window.location.href = url + "/#Map";
+    }
+
   })
 }
 

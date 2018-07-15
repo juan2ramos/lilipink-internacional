@@ -70,7 +70,7 @@
     <section class="container Slide-products">
         <h3>Enamórate de estos productos</h3>
         <div class="Slide-productsContent" id="SlideProductsContent">
-            <?php $query = new WP_Query(['post_type' => 'producto']);
+            <?php $query = new WP_Query(['post_type' => 'producto','orderby' => 'rand']);
             while ($query->have_posts()) : $query->the_post(); ?>
 
                 <article>

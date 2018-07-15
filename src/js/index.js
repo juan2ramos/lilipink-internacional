@@ -93,7 +93,6 @@ if(shop){
 
   })
 }
-
 menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('open');
   NavAdmin.classList.toggle('open');

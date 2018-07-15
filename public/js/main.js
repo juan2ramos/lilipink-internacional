@@ -8594,7 +8594,7 @@ if (document.querySelector('#filter-country')) (0, _City2.default)();
 
 var instagramAPI = new _instagramApi2.default('3646027596.c003d1f.a7cde2d348b5464db3bf27fecee21379');
 var SocialData = [];
-
+var url = document.getElementById('body').dataset.url;
 var FeedEl = document.getElementById('FeedId');
 
 (0, _Modal2.default)();
@@ -8661,10 +8661,14 @@ var NavAdmin = document.querySelector('.Nav-content'),
 
 if (shop) {
   shop.addEventListener('click', function () {
-    (0, _animatedScrollTo2.default)(document.querySelector('#Map'));
+    var MapId = document.querySelector('#Map');
+    if (MapId) {
+      (0, _animatedScrollTo2.default)();
+    } else {
+      window.location.href = url + "/#Map";
+    }
   });
 }
-
 menuToggle.addEventListener('click', function () {
   menuToggle.classList.toggle('open');
   NavAdmin.classList.toggle('open');

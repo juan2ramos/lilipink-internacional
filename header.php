@@ -75,7 +75,7 @@
     <figure class="col-5 is-text-center Header-logoTop">
       <a href="<?php echo site_url(); ?>">
 		  <?php if ( site_url() == 'http://intimasecret.com.pa' ): ?>
-            <img style="max-width: 221px;" src="<?php bloginfo( 'template_url' ) ?>/public/images/intimasecret.png"
+            <img style="max-width: 300px;" src="<?php bloginfo( 'template_url' ) ?>/public/images/intimasecret.png"
                  alt="">
 		  <?php else: ?>
             <svg width="221px" height="41px" viewBox="0 0 221 41" version="1.1" xmlns="http://www.w3.org/2000/svg"

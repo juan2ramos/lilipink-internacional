@@ -136,17 +136,11 @@ function add_custom_fields()
             'update_callback' => null,
             'schema' => null,
         ]);
-    register_rest_field('producto', 'fotos', //New Field Name in JSON RESPONSEs
-        [
-            'get_callback' => 'get_custom_fields', // custom function name
-            'update_callback' => null,
-            'schema' => null,
-        ]);
+
 }
 
 function get_custom_fields($object, $field_name, $request)
 {
-
     return get_post_meta($object['id'], $field_name, true);
 }
 
@@ -265,18 +259,14 @@ function customize_register_theme($wp_customize)
 }
 
 
-function ws_register_images_field() {
-    register_rest_field(
-        'producto',
-        'fotos',
-        array(
-            'get_callback'    => 'ws_get_images_urls',
-            'update_callback' => null,
-            'schema'          => null,
-        )
-    );
-}
+
 add_filter( 'acf_photo_gallery_caption_from_attachment', 'return_true' );
+
+
+
+
+
+
 function countries_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'Paises',
@@ -287,3 +277,62 @@ function countries_widgets_init() {
 }
 
 add_action( 'widgets_init', 'countries_widgets_init' );
+
+
+
+
+
+
+
+
+add_action( 'rest_api_init', 'add_thumbnail_to_JSON' );
+function add_thumbnail_to_JSON() {
+//Add featured image
+    register_rest_field(
+        'producto', // Where to add the field (Here, blog posts. Could be an array)
+        'post_image', // Name of new field (You can call this anything)
+        array(
+            'get_callback'    => 'get_image_src',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+
+function get_image_src( $object, $field_name, $request ) {
+    $feat_img_array = wp_get_attachment_image_src(
+        $object['featured_media'], // Image attachment ID
+        'large',  // Size.  Ex. "thumbnail", "large", "full", etc..
+        true // Whether the image should be treated as an icon.
+    );
+    return $feat_img_array[0];
+}
+
+function ws_register_images_field() {
+    register_rest_field(
+        'producto',
+        'imagesModal',
+        array(
+            'get_callback'    => 'ws_get_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+
+add_action( 'rest_api_init', 'ws_register_images_field' );
+
+function ws_get_images_urls( $object, $field_name, $request ) {
+
+    $ids = get_post_meta($object['id'], 'fotos', true);
+    $idsArray = explode(",", $ids);
+    $idReturn = [wp_get_attachment_url( get_post_thumbnail_id( $object->id )  )];
+    foreach ($idsArray as $id){
+        $idReturn[] = wp_get_attachment_url( $id );
+    }
+
+    return $idReturn;
+}
+
+
+

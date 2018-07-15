@@ -30,7 +30,7 @@ class PostPdf
 
     private function generateHtml($products)
     {
-        $root = $_SERVER["DOCUMENT_ROOT"];
+         $root = $_SERVER["DOCUMENT_ROOT"] ;
         $datos = get_option('settings_theme');
         $html = '
 

@@ -31,24 +31,23 @@ function getProduct(id) {
     axios.get(`${url}/wp-json/wp/v2/producto/${id}`)
         .then(function (response) {
             let product = response.data;
-            axios.get(`${url}/wp-json/wp/v2/media?parent=${product.id}`).then(function (images) {
-                setInfoProduct(product, images.data)
-            });
+            setInfoProduct(product)
         })
         .catch(function (error) {
             console.log(error);
         });
 }
 
-function setInfoProduct(product, images) {
-    console.log(product)
+function setInfoProduct(product) {
     titleProduct.innerText = product.title.rendered;
     priceProduct.innerText = product.valor;
     refProduct.innerText = product.referencia;
     contentProduct.innerHTML = product.content.rendered;
     wishProduct.value = product.id;
-    images.forEach(function (image) {
-        createImage(image.guid.rendered)
+    product.imagesModal.forEach(function (image) {
+        console.log(image);
+
+        createImage(image);
     });
     const ModalSlide = new Flickity('.modal-image', {
         imagesLoaded: true,

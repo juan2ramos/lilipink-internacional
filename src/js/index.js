@@ -8,49 +8,54 @@ import animateScrollTo from 'animated-scroll-to';
 if (document.querySelector('#filter-country'))
   City();
 
+tokenInstagram = document.getElementById('tokenInstagram');
+if (tokenInstagram) {
+    const tokenGet =tokenInstagram.dataset.tokeninstagram;
+    const instagramAPI = new INS(tokenGet);
+    instagramAPI.userSelfMedia().then(function (response) {
 
-const instagramAPI = new INS('3646027596.c003d1f.a7cde2d348b5464db3bf27fecee21379');
+        const post = response.data;
+        for (let i in post) {
+            //let thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
+            let thumbnail = post[i].images.standard_resolution.url;
+
+            //thumbnail = thumbnail.replace('vp', 'xp');
+            SocialData.push({
+                "id": post[i].id,
+                "likes": post[i].likes.count,
+                "comments": post[i].comments.count,
+                "caption": (post[i].caption) ? post[i].caption.text : "",
+                "type": post[i].type,
+                "link": post[i].link,
+                "images": thumbnail,
+                "from": "instagram",
+            });
+        }
+        for (let i in SocialData) {
+            const articleFeed = document.createElement("article"),
+                feedImage = document.createElement('div');
+            feedImage.setAttribute('class', 'feedImage');
+            feedImage.style.backgroundImage = `url(${SocialData[i].images})`;
+            articleFeed.appendChild(feedImage);
+            //img = document.createElement('img');
+            //img.src = SocialData[i].images;
+            //articleFeed.appendChild(img);
+
+            FeedEl.prepend(articleFeed)
+
+        }
+    }, function (err) {
+        console.log(err); // error info
+    });
+}
+
+
 const SocialData = [];
 const url = document.getElementById('body').dataset.url;
 const FeedEl = document.getElementById('FeedId');
 
 ModalProduct();
 
-instagramAPI.userSelfMedia().then(function (response) {
-
-  const post = response.data;
-  for (let i in post) {
-    //let thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
-    let thumbnail = post[i].images.standard_resolution.url;
-
-    //thumbnail = thumbnail.replace('vp', 'xp');
-    SocialData.push({
-      "id": post[i].id,
-      "likes": post[i].likes.count,
-      "comments": post[i].comments.count,
-      "caption": (post[i].caption) ? post[i].caption.text : "",
-      "type": post[i].type,
-      "link": post[i].link,
-      "images": thumbnail,
-      "from": "instagram",
-    });
-  }
-  for (let i in SocialData) {
-    const articleFeed = document.createElement("article"),
-      feedImage = document.createElement('div');
-      feedImage.setAttribute('class', 'feedImage');
-      feedImage.style.backgroundImage = `url(${SocialData[i].images})`;
-      articleFeed.appendChild(feedImage);
-      //img = document.createElement('img');
-    //img.src = SocialData[i].images;
-    //articleFeed.appendChild(img);
-
-    FeedEl.prepend(articleFeed)
-
-  }
-}, function (err) {
-  console.log(err); // error info
-});
 
 
 

@@ -34,7 +34,7 @@
                 if ($terms && !is_wp_error($terms)) :
                     foreach ($terms as $term) : ?>
                         <option
-                                    data-lng="<?php echo get_field("longitud", $term->taxonomy . '_' . $term->term_id); ?>"
+                                data-lng="<?php echo get_field("longitud", $term->taxonomy . '_' . $term->term_id); ?>"
                                 data-lat="<?php echo get_field("latitud", $term->taxonomy . '_' . $term->term_id); ?>"
                                 value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
                     <?php endforeach;
@@ -70,7 +70,7 @@
     <section class="container Slide-products">
         <h3>Enamórate de estos productos</h3>
         <div class="Slide-productsContent" id="SlideProductsContent">
-            <?php $query = new WP_Query(['post_type' => 'producto','orderby' => 'rand']);
+            <?php $query = new WP_Query(['post_type' => 'producto', 'orderby' => 'rand']);
             while ($query->have_posts()) : $query->the_post(); ?>
 
                 <article>
@@ -92,8 +92,10 @@
         </div>
 
     </section>
-
-    <section class="Social-feeds container">
+<?php
+$token = (site_url() == 'http://intimasecret.com.pa') ? '1531597775.1677ed0.3cca4c96b43c4f8684c622b533ad4ce8' :
+    ((site_url() == 'http://lilipink.cr') ? '' : '6912751228.1677ed0.396397b5d7a542fca963096561d2785c'); ?>
+    <section class="Social-feeds container" id="tokenInstagram" data-tokeninstagram="<?php echo $token?>">
         <h2>BÚSCANOS EN NUESTRAS REDES #DECORAZON</h2>
         <div class="row Social-feedsTitle ">
             <h3 class="FeedId-h3">

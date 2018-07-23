@@ -94,7 +94,7 @@
     </section>
 <?php
 $token = (site_url() == 'http://intimasecret.com.pa') ? '1531597775.1677ed0.3cca4c96b43c4f8684c622b533ad4ce8' :
-    ((site_url() == 'http://lilipink.cr') ? '' : '6912751228.1677ed0.396397b5d7a542fca963096561d2785c'); ?>
+    ((site_url() == 'http://lilipink.cr') ? '4035416781.1677ed0.d3e3b91786224ca48a18a6f799f25af1' : '6912751228.1677ed0.396397b5d7a542fca963096561d2785c'); ?>
     <section class="Social-feeds container" id="tokenInstagram" data-tokeninstagram="<?php echo $token?>">
         <h2>BÚSCANOS EN NUESTRAS REDES #DECORAZON</h2>
         <div class="row Social-feedsTitle ">

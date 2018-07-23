@@ -6,11 +6,11 @@ import INS from 'instagram-api'
 import animateScrollTo from 'animated-scroll-to';
 
 if (document.querySelector('#filter-country'))
-  City();
+    City();
 
 tokenInstagram = document.getElementById('tokenInstagram');
 if (tokenInstagram) {
-    const tokenGet =tokenInstagram.dataset.tokeninstagram;
+    const tokenGet = tokenInstagram.dataset.tokeninstagram;
     const instagramAPI = new INS(tokenGet);
     instagramAPI.userSelfMedia().then(function (response) {
 
@@ -31,6 +31,7 @@ if (tokenInstagram) {
                 "from": "instagram",
             });
         }
+        SocialData.reverse();
         for (let i in SocialData) {
             const articleFeed = document.createElement("article"),
                 feedImage = document.createElement('div');
@@ -57,79 +58,72 @@ const FeedEl = document.getElementById('FeedId');
 ModalProduct();
 
 
-
-
-
-
 const header = document.querySelector('header'),
-  menu = document.querySelector('.Nav-content'),
-  headerCountry = document.querySelector('.Header-country'),
-  countries = document.querySelector('.countries');
+    menu = document.querySelector('.Nav-content'),
+    headerCountry = document.querySelector('.Header-country'),
+    countries = document.querySelector('.countries');
 
 headerCountry.addEventListener('click', function () {
-  countries.classList.toggle('open')
+    countries.classList.toggle('open')
 });
 
 const observer = new IntersectionObserver((entries, observer) => {
-  if (entries[0].isIntersecting) {
-    menu.classList.remove('sticky');
-  } else {
-    menu.classList.add('sticky');
-  }
+    if (entries[0].isIntersecting) {
+        menu.classList.remove('sticky');
+    } else {
+        menu.classList.add('sticky');
+    }
 });
 
 observer.observe(header);
 
 const
-  NavAdmin = document.querySelector('.Nav-content'),
-  FilterTitle = document.querySelectorAll('.filters-title'),
-  menuToggle = document.getElementById('menu-toggle'),
-  shop = document.querySelector('.shop'),
-  Body = document.querySelector('body');
+    NavAdmin = document.querySelector('.Nav-content'),
+    FilterTitle = document.querySelectorAll('.filters-title'),
+    menuToggle = document.getElementById('menu-toggle'),
+    shop = document.querySelector('.shop'),
+    Body = document.querySelector('body');
 
-if(shop){
-  shop.addEventListener('click',function () {
-    const MapId = document.querySelector('#Map');
-    if (MapId){
-        animateScrollTo(MapId);
-    } else{
-        window.location.href = url + "/#Map";
-    }
+if (shop) {
+    shop.addEventListener('click', function () {
+        const MapId = document.querySelector('#Map');
+        if (MapId) {
+            animateScrollTo(MapId);
+        } else {
+            window.location.href = url + "/#Map";
+        }
 
-  })
+    })
 }
 menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('open');
-  NavAdmin.classList.toggle('open');
-  Body.classList.toggle('open-nav');
-  window.scrollTo({
-    'behavior': 'smooth',
-    'top': 0
-  });
+    menuToggle.classList.toggle('open');
+    NavAdmin.classList.toggle('open');
+    Body.classList.toggle('open-nav');
+    window.scrollTo({
+        'behavior': 'smooth',
+        'top': 0
+    });
 });
 FilterTitle.forEach(function (el) {
-  el.addEventListener('click', function () {
-    el.parentElement.querySelector('ul').classList.toggle('show');
-  })
+    el.addEventListener('click', function () {
+        el.parentElement.querySelector('ul').classList.toggle('show');
+    })
 });
-
-
-
 
 
 const SlideProducts = new Flickity('#SlideProductsContent', {
-  imagesLoaded: false,
-  setGallerySize: true,
-  cellAlign: 'center',
-  groupCells: true,
-  lazyLoad: true,
-  contain: true,
-  wrapAround: true,
-  autoPlay: 5000
+    imagesLoaded: false,
+    setGallerySize: true,
+    cellAlign: 'center',
+    groupCells: true,
+    lazyLoad: true,
+    contain: true,
+    wrapAround: true,
+    autoPlay: 5000
 });
 setTimeout(function () {
-  SlideProducts.resize();
-},3000);
+    SlideProducts.resize();
+}, 3000);
 
 
 

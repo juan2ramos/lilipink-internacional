@@ -108,13 +108,16 @@ $token = (site_url() == 'http://intimasecret.com.pa') ? '1531597775.1677ed0.3cca
         </div>
         <div class="row Social-feedsContent">
             <div id="FeedId" class="FeedId row"></div>
-
-            <div class="fb-page" data-height="760" data-href="https://www.facebook.com/LiliPinkColombia/"
+            <?php
+             $faceUrl = (site_url() == 'http://intimasecret.com.pa') ? 'https://www.facebook.com/intimasecretpanama' :
+                ((site_url() == 'http://lilipink.cr') ? 'https://www.facebook.com/lilipinkcr/' : 'https://www.facebook.com/lilipinkgt');
+            ?>
+            <div class="fb-page" data-height="760" data-href="<?php echo $faceUrl;?>"
                  data-tabs="timeline"
                  data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
                  data-show-facepile="true">
-                <blockquote cite="https://www.facebook.com/LiliPinkColombia/" class="fb-xfbml-parse-ignore"><a
-                            href="https://www.facebook.com/LiliPinkColombia/">Lili Pink</a></blockquote>
+                <blockquote cite="<?php echo $faceUrl;?>" class="fb-xfbml-parse-ignore"><a
+                            href="<?php echo $faceUrl;?>">Lili Pink</a></blockquote>
             </div>
         </div>
 

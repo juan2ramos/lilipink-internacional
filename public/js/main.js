@@ -8592,45 +8592,48 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 if (document.querySelector('#filter-country')) (0, _City2.default)();
 
-tokenInstagram = document.getElementById('tokenInstagram');
+var tokenInstagram = document.getElementById('tokenInstagram');
+
 if (tokenInstagram) {
     var tokenGet = tokenInstagram.dataset.tokeninstagram;
-    var instagramAPI = new _instagramApi2.default(tokenGet);
-    instagramAPI.userSelfMedia().then(function (response) {
+    if (tokenGet) {
+        var instagramAPI = new _instagramApi2.default(tokenGet);
+        instagramAPI.userSelfMedia().then(function (response) {
 
-        var post = response.data;
-        for (var i in post) {
-            //let thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
-            var thumbnail = post[i].images.standard_resolution.url;
+            var post = response.data;
+            for (var i in post) {
+                //let thumbnail = post[i].images.thumbnail.url.replace('s150x150/', 's320x320/');
+                var thumbnail = post[i].images.standard_resolution.url;
 
-            //thumbnail = thumbnail.replace('vp', 'xp');
-            SocialData.push({
-                "id": post[i].id,
-                "likes": post[i].likes.count,
-                "comments": post[i].comments.count,
-                "caption": post[i].caption ? post[i].caption.text : "",
-                "type": post[i].type,
-                "link": post[i].link,
-                "images": thumbnail,
-                "from": "instagram"
-            });
-        }
-        SocialData.reverse();
-        for (var _i in SocialData) {
-            var articleFeed = document.createElement("article"),
-                feedImage = document.createElement('div');
-            feedImage.setAttribute('class', 'feedImage');
-            feedImage.style.backgroundImage = 'url(' + SocialData[_i].images + ')';
-            articleFeed.appendChild(feedImage);
-            //img = document.createElement('img');
-            //img.src = SocialData[i].images;
-            //articleFeed.appendChild(img);
+                //thumbnail = thumbnail.replace('vp', 'xp');
+                SocialData.push({
+                    "id": post[i].id,
+                    "likes": post[i].likes.count,
+                    "comments": post[i].comments.count,
+                    "caption": post[i].caption ? post[i].caption.text : "",
+                    "type": post[i].type,
+                    "link": post[i].link,
+                    "images": thumbnail,
+                    "from": "instagram"
+                });
+            }
+            SocialData.reverse();
+            for (var _i in SocialData) {
+                var articleFeed = document.createElement("article"),
+                    feedImage = document.createElement('div');
+                feedImage.setAttribute('class', 'feedImage');
+                feedImage.style.backgroundImage = 'url(' + SocialData[_i].images + ')';
+                articleFeed.appendChild(feedImage);
+                //img = document.createElement('img');
+                //img.src = SocialData[i].images;
+                //articleFeed.appendChild(img);
 
-            FeedEl.prepend(articleFeed);
-        }
-    }, function (err) {
-        console.log(err); // error info
-    });
+                FeedEl.prepend(articleFeed);
+            }
+        }, function (err) {
+            console.log(err); // error info
+        });
+    }
 }
 
 var SocialData = [];

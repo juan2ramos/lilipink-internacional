@@ -9,6 +9,7 @@ if (document.querySelector('#filter-country'))
     City();
 
 let tokenInstagram = document.getElementById('tokenInstagram');
+
 if (tokenInstagram) {
     const tokenGet = tokenInstagram.dataset.tokeninstagram;
     if (tokenGet) {

@@ -11990,29 +11990,30 @@ function googleMaps(googleMaps) {
         zoom: 12
     });
     generateMaker();
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            new google.maps.Marker({
-                position: pos,
-                map: map,
-                title: '',
-                icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
+    /* comnet
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                let pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: '',
+                    icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
+                });
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                map.setCenter(pos);
+            }, function () {
+                handleLocationError(true, '', map.getCenter());
             });
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-        }, function () {
-            handleLocationError(true, '', map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, '', map.getCenter());
-    }
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, '', map.getCenter());
+        }
+    */
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

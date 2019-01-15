@@ -84,7 +84,7 @@ function googleMaps(googleMaps) {
         zoom: 12
     });
     generateMaker();
-
+/* comnet
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             let pos = {
@@ -107,7 +107,7 @@ function googleMaps(googleMaps) {
         // Browser doesn't support Geolocation
         handleLocationError(false, '', map.getCenter());
     }
-
+*/
 
 }
 

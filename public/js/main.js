@@ -11990,7 +11990,7 @@ function googleMaps(googleMaps) {
         zoom: 12
     });
     generateMaker();
-    /* comnet
+    /*
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 let pos = {

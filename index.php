@@ -45,7 +45,7 @@
             <select id="filter-points" disabled>
                 <option value="0">Selecciona tienda</option>
                 <?php
-                $points = get_posts(['post_type' => 'puntos']);
+                $points = get_posts(array('post_type' => 'puntos','numberposts' => 20));
                 foreach ($points as $point) :?>
                     <option class="for-hidden"
                             data-city="<?php echo get_the_terms($point->ID, 'ciudad')[0]->slug ?>"

@@ -13,7 +13,9 @@
 
             <article class="col-16 col-m-8 padding-4">
                 <figure>
-                    <a href=""><img src="<?php the_post_thumbnail_url(); ?>" alt=""></a>
+                    <a href="<?php the_field('url') ?> ">
+                        <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+                    </a>
                 </figure>
             </article>
 

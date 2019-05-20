@@ -118,7 +118,7 @@ $token = (site_url() == 'http://intimasecret.com.pa') ? '1531597775.1677ed0.3cca
              $faceUrl = (site_url() == 'http://intimasecret.com.pa') ? 'https://www.facebook.com/intimasecretpanama' :
                 (
                         (site_url() == 'http://lilipink.cr') ? 'https://www.facebook.com/lilipinkcr/' :
-                            ( (site_url() == 'http://lilipink.pe')? 'https://www.facebook.com/Lili-Pink-Per%C3%BA-198113817250284/':
+                            ( (site_url() == 'http://lilipink.pe')? 'https://www.facebook.com/LiliPinkPeru/':
                                 'https://www.facebook.com/lilipinkgt')
                            );
             ?>

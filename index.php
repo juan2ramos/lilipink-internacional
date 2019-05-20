@@ -109,7 +109,7 @@ $token = (site_url() == 'http://intimasecret.com.pa') ? '1531597775.1677ed0.3cca
                 <span>Inspirate <i class="fab fa-instagram"></i>  #decorazón</span>
             </h3>
             <h3 class="fb-page-h3">
-                <span>FACEBOOK Costa Rica<i class="fab fa-facebook"></i> @lilipink </span>
+                <span>FACEBOOK<i class="fab fa-facebook"></i> </span>
             </h3>
         </div>
         <div class="row Social-feedsContent">

@@ -109,7 +109,7 @@ $token = (site_url() == 'http://intimasecret.com.pa') ? '1531597775.1677ed0.3cca
                 <span>Inspirate <i class="fab fa-instagram"></i>  #decorazón</span>
             </h3>
             <h3 class="fb-page-h3">
-                <span>FACEBOOK Costa Rica<i class="fab fa-facebook"></i> @lilipinkcr </span>
+                <span>FACEBOOK Costa Rica<i class="fab fa-facebook"></i> @lilipink </span>
             </h3>
         </div>
         <div class="row Social-feedsContent">
@@ -118,7 +118,7 @@ $token = (site_url() == 'http://intimasecret.com.pa') ? '1531597775.1677ed0.3cca
              $faceUrl = (site_url() == 'http://intimasecret.com.pa') ? 'https://www.facebook.com/intimasecretpanama' :
                 (
                         (site_url() == 'http://lilipink.cr') ? 'https://www.facebook.com/lilipinkcr/' :
-                            ( (site_url() == 'http://lilipink.cr')? 'https://www.facebook.com/Lili-Pink-Per%C3%BA-198113817250284/':
+                            ( (site_url() == 'http://lilipink.pe')? 'https://www.facebook.com/Lili-Pink-Per%C3%BA-198113817250284/':
                                 'https://www.facebook.com/lilipinkgt')
                            );
             ?>

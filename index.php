@@ -85,7 +85,7 @@
                         </a>
                     </figure>
                     <div class="row justify-between">
-                        <h2><a data-id="<?php the_ID() ?>" class="show-modal icon " href=""><?php the_title() ?></a></h2>
+                        <h2><a href=""><?php the_title() ?></a></h2>
                     </div>
                     <i>REF: <?php the_field('referencia') ?></i>
                     <span><?php the_field('valor') ?></span>

@@ -116,8 +116,14 @@ $token = (site_url() == 'http://intimasecret.com.pa') ? '1531597775.1677ed0.3cca
             <div id="FeedId" class="FeedId row"></div>
             <?php
              $faceUrl = (site_url() == 'http://intimasecret.com.pa') ? 'https://www.facebook.com/intimasecretpanama' :
-                ((site_url() == 'http://lilipink.cr') ? 'https://www.facebook.com/lilipinkcr/' : 'https://www.facebook.com/lilipinkgt');
+                (
+                        (site_url() == 'http://lilipink.cr') ? 'https://www.facebook.com/lilipinkcr/' :
+                            ( (site_url() == 'http://lilipink.cr')? 'https://www.facebook.com/Lili-Pink-Per%C3%BA-198113817250284/':
+                                'https://www.facebook.com/lilipinkgt')
+                           );
             ?>
+
+
             <div class="fb-page" data-height="760" data-href="<?php echo $faceUrl;?>"
                  data-tabs="timeline"
                  data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"

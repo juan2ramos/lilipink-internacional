@@ -11924,8 +11924,8 @@ _loadGoogleMapsApi2.default.language = 'es';
 
 var urlSite = document.querySelector('body').dataset.url,
     cities = document.querySelector('#filter-country'),
-    lngInit = cities.options[undefined.selectedIndex].dataset.lng,
-    latInit = cities.options[undefined.selectedIndex].dataset.lat,
+    lngInit = cities.options[0].dataset.lng,
+    latInit = cities.options[0].dataset.lat,
     myLatLng = { lat: latInit, lng: lngInit },
     points = document.querySelector('#filter-points');
 var map = void 0;

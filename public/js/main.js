@@ -11926,11 +11926,8 @@ var urlSite = document.querySelector('body').dataset.url,
     cities = document.querySelector('#filter-country'),
     points = document.querySelector('#filter-points');
 
-var lng = cities.options[1].dataset.lng;
-var lat = cities.options[1].dataset.lat;
-
-var lngInit = lng ? parseFloat(lng) : 0,
-    latInit = lat ? parseFloat(lat) : 0,
+var lngInit = cities.options[1] ? parseFloat(cities.options[1].dataset.lng) : 0,
+    latInit = cities.options[1] ? parseFloat(cities.options[1].dataset.lat) : 0,
     myLatLng = { lat: latInit, lng: lngInit };
 
 var map = void 0;

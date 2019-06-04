@@ -7,11 +7,9 @@ const urlSite = document.querySelector('body').dataset.url,
     cities = document.querySelector('#filter-country'),
     points = document.querySelector('#filter-points');
 
-const lng = cities.options[1].dataset.lng;
-const lat = cities.options[1].dataset.lat;
 
-const lngInit = (lng) ? parseFloat(lng) : 0,
-    latInit = (lat) ? parseFloat(lat) : 0,
+const lngInit = (cities.options[1]) ? parseFloat(cities.options[1].dataset.lng) : 0,
+    latInit = (cities.options[1]) ? parseFloat(cities.options[1].dataset.lat) : 0,
     myLatLng = {lat: latInit, lng: lngInit};
 
 let map;

@@ -8,8 +8,8 @@ const urlSite = document.querySelector('body').dataset.url,
     points = document.querySelector('#filter-points');
 
 
-const lngInit = (cities.options) ? parseFloat(cities.options[1].dataset.lng) : 0,
-    latInit = (cities.options) ? parseFloat(cities.options[1].dataset.lat) : 0,
+const lngInit = (cities) ? parseFloat(cities.options[1].dataset.lng) : 0,
+    latInit = (cities) ? parseFloat(cities.options[1].dataset.lat) : 0,
     myLatLng = {lat: latInit, lng: lngInit};
 
 let map;

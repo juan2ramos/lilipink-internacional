@@ -11924,6 +11924,7 @@ _loadGoogleMapsApi2.default.language = 'es';
 
 var urlSite = document.querySelector('body').dataset.url,
     cities = document.querySelector('#filter-country');
+console.log(cities);
 if (cities) {
     var lngInit = parseFloat(cities.options[1].dataset.lng),
         latInit = parseFloat(cities.options[1].dataset.lat),

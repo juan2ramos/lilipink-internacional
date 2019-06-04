@@ -5,6 +5,7 @@ loadGoogleMapsApi.language = 'es';
 
 const urlSite = document.querySelector('body').dataset.url,
     cities = document.querySelector('#filter-country');
+console.log(cities)
 if (cities) {
     const lngInit = parseFloat(cities.options[1].dataset.lng),
         latInit = parseFloat(cities.options[1].dataset.lat),

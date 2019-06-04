@@ -11926,11 +11926,13 @@ var urlSite = document.querySelector('body').dataset.url,
     cities = document.querySelector('#filter-country'),
     points = document.querySelector('#filter-points');
 
-if (cities) {
-    var lngInit = parseFloat(cities.options[1].dataset.lng),
-        latInit = parseFloat(cities.options[1].dataset.lat),
-        _myLatLng = { lat: latInit, lng: lngInit };
-}
+var lng = cities.options[1].dataset.lng;
+var lat = cities.options[1].dataset.lat;
+
+var lngInit = lng ? parseFloat(lng) : 0,
+    latInit = lat ? parseFloat(lat) : 0,
+    myLatLng = { lat: latInit, lng: lngInit };
+
 var map = void 0;
 
 function cityChange() {

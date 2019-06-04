@@ -4,8 +4,10 @@ loadGoogleMapsApi.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 loadGoogleMapsApi.language = 'es';
 
 const urlSite = document.querySelector('body').dataset.url,
-    myLatLng = {lat: 9.928069, lng: -84.090725},
     cities = document.querySelector('#filter-country'),
+    lngInit = cities.options[this.selectedIndex].dataset.lng,
+    latInit = cities.options[this.selectedIndex].dataset.lat,
+    myLatLng = {lat: latInit, lng: lngInit},
     points = document.querySelector('#filter-points');
 let map;
 
@@ -20,9 +22,9 @@ export default function () {
 
 function cityChange() {
 
-    if (this.value === "0"){
-        points.setAttribute('disabled','disabled');
-    }else {
+    if (this.value === "0") {
+        points.setAttribute('disabled', 'disabled');
+    } else {
         points.removeAttribute('disabled');
         points.value = 0;
     }
@@ -84,30 +86,30 @@ function googleMaps(googleMaps) {
         zoom: 12
     });
     generateMaker();
-/*
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            let pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            new google.maps.Marker({
-                position: pos,
-                map: map,
-                title: '',
-                icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
+    /*
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                let pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: '',
+                    icon: urlSite + "/wp-content/themes/lilipink/public/images/pin_map.png"
+                });
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                map.setCenter(pos);
+            }, function () {
+                handleLocationError(true, '', map.getCenter());
             });
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-        }, function () {
-            handleLocationError(true, '', map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, '', map.getCenter());
-    }
-*/
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, '', map.getCenter());
+        }
+    */
 
 }
 

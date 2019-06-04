@@ -1,20 +1,20 @@
 :root {
-  --primary-color: #538bf4;
-  --secondary-color: #5a6169;
-  --link-color: #538bf4;
-  --fontPrimary--color: #434343;
-  --lightGrey-color: #e9ecef;
-  --darkGrey-color: #8fa4b8;
-  --dark-color: #5a6169;
-  --active-color: #007bff;
-  --success-color: #17c671;
-  --warning-color: #ffb400;
-  --info-color: #00b8d8;
-  --error-color: #c4183c;
-  --grid-maxWidth: 1200px;
-  --grid-gutter: 1.6rem;
-  --grid-columns: 16;
-  --font-family: "Roboto",-apple-system,BlinkMacSystemFont,Avenir,"Avenir Next","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; }
+  --primary-color:#538bf4;
+  --secondary-color:#5a6169;
+  --link-color:#538bf4;
+  --fontPrimary--color:#434343;
+  --lightGrey-color:#e9ecef;
+  --darkGrey-color:#8fa4b8;
+  --dark-color:#5a6169;
+  --active-color:#007bff;
+  --success-color:#17c671;
+  --warning-color:#ffb400;
+  --info-color:#00b8d8;
+  --error-color:#c4183c;
+  --grid-maxWidth:1200px;
+  --grid-gutter:1.6rem;
+  --grid-columns:16;
+  --font-family:"Roboto",-apple-system,BlinkMacSystemFont,Avenir,"Avenir Next","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; }
 
 * {
   -webkit-box-sizing: border-box;

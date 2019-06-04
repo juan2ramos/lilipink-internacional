@@ -11923,8 +11923,10 @@ _loadGoogleMapsApi2.default.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 _loadGoogleMapsApi2.default.language = 'es';
 
 var urlSite = document.querySelector('body').dataset.url,
-    myLatLng = { lat: 9.928069, lng: -84.090725 },
     cities = document.querySelector('#filter-country'),
+    lngInit = cities.options[undefined.selectedIndex].dataset.lng,
+    latInit = cities.options[undefined.selectedIndex].dataset.lat,
+    myLatLng = { lat: latInit, lng: lngInit },
     points = document.querySelector('#filter-points');
 var map = void 0;
 

@@ -11928,7 +11928,7 @@ var urlSite = document.querySelector('body').dataset.url,
     latInit = cities.options[0].dataset.lat,
     myLatLng = { lat: latInit, lng: lngInit },
     points = document.querySelector('#filter-points');
-console.log(lngInit);
+console.log(cities.options);
 console.log(latInit);
 var map = void 0;
 

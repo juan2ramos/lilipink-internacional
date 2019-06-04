@@ -5,12 +5,12 @@ loadGoogleMapsApi.language = 'es';
 
 const urlSite = document.querySelector('body').dataset.url,
     cities = document.querySelector('#filter-country'),
-    myLatLng = {lat: latInit, lng: lngInit},
     points = document.querySelector('#filter-points');
 
 if (cities) {
     const lngInit = parseFloat(cities.options[1].dataset.lng),
-        latInit = parseFloat(cities.options[1].dataset.lat);
+        latInit = parseFloat(cities.options[1].dataset.lat),
+        myLatLng = {lat: latInit, lng: lngInit};
 }
 let map;
 

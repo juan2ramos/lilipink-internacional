@@ -4,13 +4,13 @@ loadGoogleMapsApi.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 loadGoogleMapsApi.language = 'es';
 
 const urlSite = document.querySelector('body').dataset.url,
-    cities = document.querySelector('#filter-country'),
-    lngInit = parseFloat (cities.options[1].dataset.lng),
-    latInit = parseFloat (cities.options[1].dataset.lat),
-    myLatLng = {lat: latInit, lng: lngInit},
-    points = document.querySelector('#filter-points');
-console.log(lngInit);
-console.log(latInit);
+    cities = document.querySelector('#filter-country');
+if (cities) {
+    const lngInit = parseFloat(cities.options[1].dataset.lng),
+        latInit = parseFloat(cities.options[1].dataset.lat),
+        myLatLng = {lat: latInit, lng: lngInit},
+        points = document.querySelector('#filter-points');
+}
 let map;
 
 export default function () {

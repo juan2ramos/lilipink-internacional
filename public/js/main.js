@@ -11923,13 +11923,13 @@ _loadGoogleMapsApi2.default.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 _loadGoogleMapsApi2.default.language = 'es';
 
 var urlSite = document.querySelector('body').dataset.url,
-    cities = document.querySelector('#filter-country');
-console.log(cities);
+    cities = document.querySelector('#filter-country'),
+    myLatLng = { lat: latInit, lng: lngInit },
+    points = document.querySelector('#filter-points');
+
 if (cities) {
-    var lngInit = parseFloat(cities.options[1].dataset.lng),
-        latInit = parseFloat(cities.options[1].dataset.lat),
-        _myLatLng = { lat: latInit, lng: lngInit },
-        _points = document.querySelector('#filter-points');
+    var _lngInit = parseFloat(cities.options[1].dataset.lng),
+        _latInit = parseFloat(cities.options[1].dataset.lat);
 }
 var map = void 0;
 

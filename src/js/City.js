@@ -4,13 +4,13 @@ loadGoogleMapsApi.key = 'AIzaSyDZdUWy3NxDz_nB8cs3GjpGaWqKYdWlny4';
 loadGoogleMapsApi.language = 'es';
 
 const urlSite = document.querySelector('body').dataset.url,
-    cities = document.querySelector('#filter-country');
-console.log(cities)
+    cities = document.querySelector('#filter-country'),
+    myLatLng = {lat: latInit, lng: lngInit},
+    points = document.querySelector('#filter-points');
+
 if (cities) {
     const lngInit = parseFloat(cities.options[1].dataset.lng),
-        latInit = parseFloat(cities.options[1].dataset.lat),
-        myLatLng = {lat: latInit, lng: lngInit},
-        points = document.querySelector('#filter-points');
+        latInit = parseFloat(cities.options[1].dataset.lat);
 }
 let map;
 

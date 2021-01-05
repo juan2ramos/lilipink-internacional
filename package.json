@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "animated-scroll-to": "^1.2.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "facebook-sdk": "^0.3.2",
     "flickity": "^2.0.11",
     "imports-loader": "^0.8.0",
